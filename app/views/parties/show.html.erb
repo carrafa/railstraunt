@@ -1,3 +1,11 @@
 party #<%= @party.id %>
 <br>
 table <%= @party.name %>
+
+<ul>
+  <% @party.seats.each do |seat| %>
+    <li>
+      <%= seat.name %>
+    </li>
+  <% end %>
+</ul>
