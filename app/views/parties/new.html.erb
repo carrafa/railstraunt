@@ -1,7 +1,7 @@
 <%= form_for @party, url: user_parties_path(current_user) do |f| %>
-<%= f.label :name %>
+<%= f.label "table" %>
 <%= f.select (:name) do %>
-  <% [['A1'],['B1'], ['C1']].each do |c| %>
+  <% [['A'],['B'], ['C'], ['Bar']].each do |c| %>
     <%= content_tag(:option, c.first, value: c.last) %>
     <% end %>
   <% end %>
