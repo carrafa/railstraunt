@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217211645) do
+ActiveRecord::Schema.define(version: 20151217212605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20151217211645) do
 
   add_index "orders", ["dish_id"], name: "index_orders_on_dish_id", using: :btree
 
+  create_table "parties", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "parties", ["user_id"], name: "index_parties_on_user_id", using: :btree
+
   create_table "recipes", force: :cascade do |t|
     t.integer  "dish_id"
     t.integer  "ingredient_id"
@@ -57,17 +66,8 @@ ActiveRecord::Schema.define(version: 20151217211645) do
     t.integer  "vip_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "table_id"
+    t.integer  "party_id"
   end
-
-  create_table "tables", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "tables", ["user_id"], name: "index_tables_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20151217211645) do
   end
 
   add_foreign_key "orders", "dishes"
+  add_foreign_key "parties", "users"
   add_foreign_key "recipes", "dishes"
   add_foreign_key "recipes", "ingredients"
-  add_foreign_key "tables", "users"
 end

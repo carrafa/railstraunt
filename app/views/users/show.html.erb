@@ -1,6 +1,13 @@
 <h1>hi</h1>
 
+<%= link_to "add party", new_user_party_path(current_user) %>
 
-<% current_user.tables.each do |table| %>
-<%= table.name %>
-<% end %>
+<h3>here are your parties</h3>
+
+<ul>
+  <% current_user.parties.each do |party| %>
+    <li>
+      <%= link_to party.name, party_path(party) %>
+    </li>
+  <% end %>
+</ul>

@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :users do
-    resources :tables
+    resources :parties, only: [:new, :create]
   end
+
+  resources :parties, only: [:show]
 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
