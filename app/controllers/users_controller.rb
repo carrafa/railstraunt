@@ -9,7 +9,11 @@ class UsersController < ApplicationController
 
   def create
     User.create(user_params)
-    redirect_to user_path
+    redirect_to root_path
+  end
+
+  def show
+    authenticate!
   end
 
   private

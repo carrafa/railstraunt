@@ -1,1 +1,6 @@
 <h1>hi</h1>
+
+
+<% current_user.tables.each do |table| %>
+<%= table.name %>
+<% end %>
