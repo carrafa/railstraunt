@@ -1,10 +1,10 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 
   def create
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to profile_path
+      redirect_to user_path(user.id)
     else
       redirect_to root_path
     end
@@ -14,5 +14,5 @@ class SessionController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
-  
+
 end

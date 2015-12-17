@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/log_in' => 'users#log_in'
 
+
+
   resources :users
 
     post '/sessions' => 'sessions#create'

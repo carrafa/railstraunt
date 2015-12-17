@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
     let(:party) {user.parties.create({ table:"A1"})}
     let(:guest) {party.guests.create({ name:"buddy", vip_status: 10})}
 
-      it "When a User is created it should have its password encrypted." do
+      it "when a User is created it should have its password encrypted." do
 
         actual = user.password_digest.length > 0
         expected = true
@@ -24,10 +24,10 @@ RSpec.describe User, type: :model do
 
       end
 
-      it "when a guest is added, it should add party_id to guest" do
+      it "guests should have associated user through party " do
 
-        actual = guest.party_id
-        expected = party.id
+        actual = guest.party.user_id
+        expected = user.id
         expect(actual).to eq(expected)
       end
 
