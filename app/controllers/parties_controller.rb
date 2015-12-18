@@ -9,6 +9,12 @@ class PartiesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def update
+    order = Order.find(params[:id])
+    order.update(order_params)
+    redirect_to party_path
+  end
+
   def show
     @party = Party.find(params[:id])
     @order = Order.new

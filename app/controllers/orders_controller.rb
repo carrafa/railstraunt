@@ -13,6 +13,13 @@ class OrdersController < ApplicationController
     redirect_to party_path(params[:party_id])
   end
 
+  def update
+    order = Order.find(params[:id])
+    order.update(order_params)
+    redirect_to party_path(order.party_id)
+  end
+
+
   private
 
   def order_params
