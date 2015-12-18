@@ -10,11 +10,11 @@ ingredients, yum.
 <ul>
   <% @ingredients.each do |ingredient| %>
   <li>
-    <%= ingredient.name %>
+    <%= link_to ingredient.name, ingredient_path(ingredient) %>
   </li>
   <% end %>
-  <li>
     <% if current_user.account == "admin" %>
+    <li>
     <%= link_to "add ingredient", new_ingredient_path %>
     <% end %>
   </li>

@@ -5,14 +5,22 @@
 </div>
 <div>
 
+  <table>
+    <tr>
+      <th>dish</th>
+      <th>seat</th>
+      <th>status</th>
+      <th>time</th>
+    </tr>
   <% @orders.each do |order| %>
 
-    <li>
-      <%= order.dish.name %>
-      for
-      <%= order.seat %>
-    </li>
+    <tr>
+      <td><%= order.dish.name %></td>
+      <td><%= order.seat %></td>
+      <td><%= order.status %></td>
+      <td><%= order.created_at.to_i %> </td>
+    </tr>
 
   <% end %>
-
+  </table>
 </div>

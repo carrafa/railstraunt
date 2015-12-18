@@ -5,14 +5,14 @@
 </h1>
 
 <p>
-<%= @dish.description %>
+  <%= @dish.description %>
 </p>
 
 <ul>
 <% @dish.ingredients.each do |ingredient| %>
   <li><%= ingredient.name %></li>
+  <% end %>
 </ul>
-<% end %>
 
 <h1>add ingredients to this dish</h1>
 <%= form_for @recipe do |f| %>

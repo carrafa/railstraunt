@@ -2,7 +2,7 @@
   oh i'm a header whaaaaaat
   (<%= current_user.account %> account)
   <% if current_user.account == "server" || current_user.account == "admin" %>
-    <%= link_to 'tables', user_path(current_user) %>
+    <%= link_to 'parties', user_path(current_user) %>
   <% end %>
   <%= link_to 'menu', dishes_path %>
   <%= link_to 'ingredients', ingredients_path %>

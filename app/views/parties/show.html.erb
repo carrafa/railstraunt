@@ -25,13 +25,27 @@ table <%= @party.name %>
     <%= f.label 'dish' %>
     <%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: :true %>
     <%= f.hidden_field :party_id, :value => @party.id %>
+    <%= f.hidden_field :status, :value => "open" %>
     <%= f.submit %>
     <% end %>
 
   </li>
+  <table>
+    <tr>
+      <th>dish</th>
+      <th>seat</th>
+      <th>status</th>
+      <th>time</th>
+    </tr>
   <% @party.orders.each do |order| %>
-    <li>
-      Seat <%= order.seat %> | <%= link_to order.dish.name, dish_path(order.dish_id) %> | $<%= order.dish.price %>
-    </li>
-    <% end %>
+
+    <tr>
+      <td><%= order.dish.name %></td>
+      <td><%= order.seat %></td>
+      <td><%= order.status %></td>
+      <td><%= order.created_at.to_i %> </td>
+    </tr>
+
+  <% end %>
+  </table>
 </ul>

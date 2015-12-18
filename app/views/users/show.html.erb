@@ -20,15 +20,23 @@
 </div>
 <div>
 
+  <table>
+    <tr>
+      <th>dish</th>
+      <th>seat</th>
+      <th>status</th>
+      <th>time</th>
+    </tr>
   <% current_user.orders.each do |order| %>
 
-    <li>
-      bring a
-      <%= order.dish.name %>
-      to the person sitting in seat
-      <%= order.seat %>
-    </li>
+    <tr>
+      <td><%= order.dish.name %></td>
+      <td><%= order.seat %></td>
+      <td><%= order.status %></td>
+      <td><%= order.created_at.to_i %> </td>
+    </tr>
 
   <% end %>
+  </table>
 
 </div>
