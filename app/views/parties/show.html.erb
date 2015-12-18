@@ -51,8 +51,4 @@ table <%= @party.name %>
     <% end %>
   </table>
 TOTAL:
-<% total = [] %>
-<% @party.orders.each do |order| %>
-<% total.push(order.dish.price) %>
-<% end %>
-<%= total.inject(:+) %>
+<%= @party.get_bill %>
