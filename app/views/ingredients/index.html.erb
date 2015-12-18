@@ -1,0 +1,13 @@
+<h1>
+ingredients, yum.
+</h1>
+
+<%= link_to "add ingredient", new_ingredient_path %>
+
+<ul>
+  <% @ingredients.each do |ingredient| %>
+  <li>
+    <%= ingredient.name %>
+  </li>
+  <% end %>
+</ul>

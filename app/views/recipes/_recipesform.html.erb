@@ -1,0 +1,7 @@
+<%= form_for @recipe do |f| %>
+  <%= f.label "add :" %>
+  <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name, include_blank: true %>
+  <%= f.label "to :" %>
+  <%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: true %>
+  <%= f.submit %>
+<% end %>

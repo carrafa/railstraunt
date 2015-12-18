@@ -1,0 +1,12 @@
+<h1>
+dishes, yum.
+</h1>
+
+
+<ul>
+  <% @dishes.all.each do |dish| %>
+  <li>
+    <%= link_to dish.name, dish_path(dish) %>
+  </li>
+  <% end %>
+</ul>

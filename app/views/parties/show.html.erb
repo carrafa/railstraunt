@@ -2,10 +2,30 @@ party #<%= @party.id %>
 <br>
 table <%= @party.name %>
 
+<%= link_to "back to tables", user_path %>
+
+<h4>add order</h4>
+
+<%= form_for @order, url: party_orders_path(@party.id) do |f| %>
+<%= f.label 'seat' %>
+<%= f.select (:seat) do %>
+  <% @seats.each do |c| -%>
+   <%= content_tag(:option, c, value: c) %>
+   <% end %>
+<% end %>
+<%= f.label 'dish' %>
+<%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: :true %>
+<%= f.hidden_field :party_id, :value => @party.id %>
+<%= f.submit %>
+<% end %>
+
+<h4>orders</h4>
+
+
 <ul>
-  <% @party.seats.each do |seat| %>
+  <% @party.orders.each do |order| %>
     <li>
-      <%= link_to "Seat " + seat.name, new_seat_order_path(seat) %>
+      Seat <%= order.seat %> | <%= link_to order.dish.name, dish_path(order.dish_id) %> | $<%= order.dish.price %>
     </li>
-  <% end %>
+    <% end %>
 </ul>

@@ -1,8 +1,8 @@
 <%= form_for @party, url: user_parties_path(current_user) do |f| %>
 <%= f.label "table" %>
 <%= f.select (:name) do %>
-  <% [['A'],['B'], ['C'], ['Bar']].each do |c| %>
-    <%= content_tag(:option, c.first, value: c.last) %>
+  <% ['A','B','C','D','E'].each do |c| %>
+    <%= content_tag(:option, c, value: c) %>
     <% end %>
   <% end %>
 <%= f.submit "add party"%>

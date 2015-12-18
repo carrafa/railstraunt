@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
   end
 
+  resources :dishes
+  resources :ingredients
+  resources :recipes
+
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
 
