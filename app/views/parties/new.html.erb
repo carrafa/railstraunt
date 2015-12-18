@@ -1,6 +1,6 @@
 <%= form_for @party, url: user_parties_path(current_user) do |f| %>
 <%= f.label "table" %>
-<%= f.select (:name) do %>
+<%= f.select :name do %>
   <% ['A','B','C','D','E'].each do |c| %>
     <%= content_tag(:option, c, value: c) %>
     <% end %>
