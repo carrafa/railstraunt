@@ -1,11 +1,11 @@
 <%= render 'layouts/header' %>
 
 <%= form_for @party, url: user_parties_path(current_user) do |f| %>
-<%= f.label "table" %>
-<%= f.select :name do %>
-  <% ['A','B','C','D','E'].each do |c| %>
-    <%= content_tag(:option, c, value: c) %>
+  <%= f.label "table" %>
+  <%= f.select :name do %>
+    <% ['A','B','C','D','E'].each do |c| %>
+      <%= content_tag(:option, c, value: c) %>
+      <% end %>
     <% end %>
-  <% end %>
-<%= f.submit "add party"%>
+  <%= f.submit "add party"%>
 <% end %>

@@ -13,5 +13,9 @@ ingredients, yum.
     <%= ingredient.name %>
   </li>
   <% end %>
-  <li><%= link_to "add ingredient", new_ingredient_path %></li>
+  <li>
+    <% if current_user.account == "admin" %>
+    <%= link_to "add ingredient", new_ingredient_path %>
+    <% end %>
+  </li>
 </ul>

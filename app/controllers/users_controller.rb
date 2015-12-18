@@ -14,6 +14,9 @@ class UsersController < ApplicationController
 
   def show
     authenticate!
+    if current_user.account == 'chef'
+      redirect_to orders_path
+    end
   end
 
   private

@@ -1,6 +1,6 @@
 <%= render 'layouts/header' %>
 
-<div> here are your orders, <%= current_user.username %>
+<div> here are all of the orders</div>
 
 </div>
 <div>
@@ -8,9 +8,8 @@
   <% @orders.each do |order| %>
 
     <li>
-      bring a
       <%= order.dish.name %>
-      to the person sitting in seat
+      for
       <%= order.seat %>
     </li>
 

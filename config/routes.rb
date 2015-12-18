@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   get '/log_in' => 'users#log_in'
 
 
+  resources :orders, only: [:index]
 
   resources :users
   resources :users do
     resources :parties, only: [:new, :create]
-    resources :orders, only: [:index]
   end
 
   resources :parties, only: [:show]

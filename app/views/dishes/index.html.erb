@@ -11,4 +11,8 @@ dishes, yum.
     <%= link_to dish.name, dish_path(dish) %>
   </li>
   <% end %>
+
+  <% if current_user.account == "admin" %>
+    <%= link_to "add dish", new_dish_path %>
+  <% end %>
 </ul>

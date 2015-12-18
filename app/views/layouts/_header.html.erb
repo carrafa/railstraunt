@@ -1,8 +1,10 @@
 <header>
   oh i'm a header whaaaaaat
-  <% if current_user.account == 'server' %>
-  <%= link_to 'tables', user_path(current_user) %>
+  (<%= current_user.account %> account)
+  <% if current_user.account == "server" || current_user.account == "admin" %>
+    <%= link_to 'tables', user_path(current_user) %>
   <% end %>
-
+  <%= link_to 'menu', dishes_path %>
+  <%= link_to 'ingredients', ingredients_path %>
   <%= button_to "Log-Out", sessions_path, method: :delete %>
 </header>
