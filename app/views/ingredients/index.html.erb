@@ -2,12 +2,14 @@
 ingredients, yum.
 </h1>
 
-<%= link_to "add ingredient", new_ingredient_path %>
 
+
+<h4>all the ingredients:</h4>
 <ul>
   <% @ingredients.each do |ingredient| %>
   <li>
     <%= ingredient.name %>
   </li>
   <% end %>
+  <li><%= link_to "add ingredient", new_ingredient_path %></li>
 </ul>
