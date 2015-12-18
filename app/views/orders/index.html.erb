@@ -1,0 +1,19 @@
+<%= render 'layouts/header' %>
+
+<div> here are your orders, <%= current_user.username %>
+
+</div>
+<div>
+
+  <% @orders.each do |order| %>
+
+    <li>
+      bring a
+      <%= order.dish.name %>
+      to the person sitting in seat
+      <%= order.seat %>
+    </li>
+
+  <% end %>
+
+</div>

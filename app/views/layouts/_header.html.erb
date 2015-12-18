@@ -1,0 +1,8 @@
+<header>
+  oh i'm a header whaaaaaat
+  <% if current_user.account == 'server' %>
+  <%= link_to 'tables', user_path(current_user) %>
+  <% end %>
+
+  <%= button_to "Log-Out", sessions_path, method: :delete %>
+</header>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218041601) do
+ActiveRecord::Schema.define(version: 20151218172335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151218041601) do
     t.integer  "seat_id"
     t.integer  "party_id"
     t.string   "seat"
+    t.string   "status"
   end
 
   add_index "orders", ["dish_id"], name: "index_orders_on_dish_id", using: :btree
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20151218041601) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "status"
   end
 
   add_index "parties", ["user_id"], name: "index_parties_on_user_id", using: :btree
@@ -77,7 +79,7 @@ ActiveRecord::Schema.define(version: 20151218041601) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
-    t.integer  "admin"
+    t.string   "account"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

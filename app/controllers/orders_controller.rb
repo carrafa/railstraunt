@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
 
+  def index
+    @user_orders = current_user.orders.all
+    @orders = Order.all
+  end
+
   def new
     @order = Order.new
   end

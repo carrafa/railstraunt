@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   resources :users
   resources :users do
     resources :parties, only: [:new, :create]
+    resources :orders, only: [:index]
   end
 
   resources :parties, only: [:show]
   resources :parties do
     resources :orders, only: [:new, :create]
   end
+
+  resources :orders, only: [:show]
 
   resources :dishes
   resources :ingredients
