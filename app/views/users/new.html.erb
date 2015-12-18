@@ -5,5 +5,11 @@
   <%= f.text_field :username %>
   <%= f.label :password %>
   <%= f.password_field :password %>
+  <%= f.label :admin %>
+  <%= f.select :admin do %>
+    <% [['no', 0],['yes', 1]].each do |c| %>
+      <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+  <% end %>
   <%= f.submit 'submit' %>
 <% end %>
