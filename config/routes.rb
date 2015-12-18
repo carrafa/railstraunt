@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :parties, only: [:show]
+  resources :parties do
+    resources :orders, only: [:new, :create]
+  end
 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'

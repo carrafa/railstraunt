@@ -7,7 +7,7 @@
 <ul>
   <% current_user.parties.each do |party| %>
     <li>
-      <%= link_to party.name, party_path(party) %>
+      <%= link_to "Table " + party.name, party_path(party) %>
     </li>
   <% end %>
 </ul>

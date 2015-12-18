@@ -5,7 +5,7 @@ table <%= @party.name %>
 <ul>
   <% @party.seats.each do |seat| %>
     <li>
-      <%= seat.name %>
+      <%= link_to "Seat " + seat.name, new_seat_order_path(seat) %>
     </li>
   <% end %>
 </ul>

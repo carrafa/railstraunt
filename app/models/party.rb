@@ -1,7 +1,7 @@
 class Party < ActiveRecord::Base
 
   belongs_to :user
-  has_many :seats
+  has_many :orders
 
   def populate_seats num
     seats = {

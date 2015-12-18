@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
 
-  belongs_to :seats
+  belongs_to :parties
   belongs_to :dishes
 
 end
