@@ -11,6 +11,9 @@ ingredients, yum.
   <% @ingredients.each do |ingredient| %>
   <li>
     <%= link_to ingredient.name, ingredient_path(ingredient) %>
+    <% if current_user.account == "admin" %>
+      <%= button_to "x", ingredient_path(ingredient), method: :delete %>
+    <% end %>
   </li>
   <% end %>
     <% if current_user.account == "admin" %>

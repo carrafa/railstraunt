@@ -14,9 +14,11 @@
   <% end %>
 </ul>
 
-<h1>add ingredients to this dish</h1>
-<%= form_for @recipe do |f| %>
-  <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name, include_blank: true %>
-  <%= f.hidden_field :dish_id, :value => @dish.id %>
+<% if current_user.account == "admin" %>
+  <h1>add ingredients to this dish</h1>
+  <%= form_for @recipe do |f| %>
+    <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name, include_blank: true %>
+    <%= f.hidden_field :dish_id, :value => @dish.id %>
   <%= f.submit "add"%>
+    <% end %>
 <% end %>

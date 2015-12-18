@@ -9,6 +9,10 @@ class PartiesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def edit
+    @party = Party.find(params[:id])
+  end
+
   def update
     order = Order.find(params[:id])
     order.update(order_params)
@@ -20,6 +24,10 @@ class PartiesController < ApplicationController
     @order = Order.new
     @orders = Order.where(id = @party.id)
     @seats = @party.populate_seats @party.name
+  end
+
+  def bill
+    @party = Party.find(params[:party_id])
   end
 
   private

@@ -9,12 +9,13 @@ Rails.application.routes.draw do
 
   resources :users
   resources :users do
-    resources :parties, only: [:new, :create, :update]
+    resources :parties, only: [:new, :create, :update, :edit]
   end
 
   resources :parties, only: [:show]
   resources :parties do
     resources :orders, only: [:new, :create, :update]
+    get '/bill' => 'parties#bill'
   end
 
   resources :orders, only: [:show, :update]
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   resources :dishes
   resources :ingredients
   resources :recipes
+
 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'

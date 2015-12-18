@@ -1,0 +1,18 @@
+<%= render 'layouts/header' %>
+
+<table>
+  <tr>
+    <th>dish</th>
+    <th>price</th>
+  </tr>
+<% @party.orders.each do |order| %>
+
+  <tr>
+    <td><%= order.dish.name %></td>
+    <td>$<%= order.dish.price %></td>
+    </td>
+  </tr>
+  <% end %>
+</table>
+TOTAL:
+<%= @party.get_bill %>

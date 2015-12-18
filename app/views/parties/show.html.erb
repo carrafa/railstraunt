@@ -22,7 +22,7 @@ table <%= @party.name %>
     <%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: :true %>
     <%= f.hidden_field :party_id, :value => @party.id %>
     <%= f.hidden_field :status, :value => "open" %>
-    <%= f.submit %>
+    <%= f.submit "add" %>
     <% end %>
 
   <table>

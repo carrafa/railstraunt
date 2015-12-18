@@ -9,7 +9,10 @@ dishes, yum.
   <% @dishes.all.each do |dish| %>
   <li>
     <%= link_to dish.name, dish_path(dish) %>
-  </li>
+    <% if current_user.account == "admin" %>
+      <%= button_to "x", dish_path(dish), method: :delete %>
+    <% end %>
+
   <% end %>
 
   <% if current_user.account == "admin" %>
