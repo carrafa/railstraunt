@@ -5,7 +5,7 @@
   <%= f.text_field :username %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-  <%= f.label "account"%>
+  <%= f.label :account %>
   <%= f.select :account do %>
     <% ['server', 'chef', 'admin'].each do |c| %>
       <%= content_tag(:option, c, value: c) %>
