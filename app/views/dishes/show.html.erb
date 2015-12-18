@@ -8,15 +8,13 @@
 
 <ul>
 <% @dish.ingredients.each do |ingredient| %>
-  <li>ingredient.name</li>
+  <li><%= ingredient.name %></li>
 </ul>
 <% end %>
 
 <h1>add ingredients to this dish</h1>
 <%= form_for @recipe do |f| %>
-  <%= f.label "add :" %>
   <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name, include_blank: true %>
-  <%= f.label "to :" %>
-  <%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: true %>
-  <%= f.submit %>
+  <%= f.hidden_field :dish_id, :value => @dish.id %>
+  <%= f.submit "add"%>
 <% end %>
