@@ -3,15 +3,37 @@
 <h1>hi, <%= current_user.username %></h1>
 
 
-<h3>here are your parties</h3>
+<h3>here are your open parties</h3>
 
-<ul>
+<table>
+  <tr>
+    <th>party</th>
+    <th>table</th>
+    <th>status</th>
+    <th>close</th>
+  </tr>
   <% current_user.parties.each do |party| %>
-    <li>
-      <%= link_to "Table " + party.name, party_path(party) %>
-    </li>
+    <% if party.status == "open" %>
+      <tr>
+        <td>
+          <%= party.id %>
+        </td>
+        <td>
+          <%= link_to "Table " + party.name, party_path(party) %>
+        </td>
+        <td>
+          <%= party.status %>
+        </td>
+        <td>
+          <%= form_for party, url: party_path(party.id), method: :put do |f| %>
+              <%= f.hidden_field :status, :value =>"closed" %>
+              <%= f.submit "x" %>
+              <% end %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
-</ul>
+</table>
 
 <%= link_to "add party", new_user_party_path(current_user) %>
 

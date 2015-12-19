@@ -42,10 +42,11 @@ table <%= @party.name %>
       <td><%= order.seat %></td>
       <td><%= order.status %></td>
       <td><%= order.created_at.to_i %> </td>
-      <td><%= form_for order, url: order_path(order) do |f| %>
+      <td>
+        <%= form_for order, url: order_path(order) do |f| %>
           <%= f.hidden_field :status, :value =>"closed" %>
           <%= f.submit "x" %>
-          <% end %>
+        <% end %>
       </td>
     </tr>
     <% end %>

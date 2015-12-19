@@ -16,7 +16,11 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update(order_params)
+    if current_user.account == "chef"
+      redirect_to orders_path
+    else
     redirect_to party_path(order.party_id)
+    end
   end
 
   def edit_multiple

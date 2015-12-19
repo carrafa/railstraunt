@@ -14,9 +14,9 @@ class PartiesController < ApplicationController
   end
 
   def update
-    order = Order.find(params[:id])
-    order.update(order_params)
-    redirect_to party_path
+    party = Party.find(params[:id])
+    party.update(party_params)
+    redirect_to user_path(current_user)
   end
 
   def show
@@ -33,7 +33,7 @@ class PartiesController < ApplicationController
   private
 
   def party_params
-    params.require(:party).permit(:name)
+    params.require(:party).permit(:name, :status)
   end
 
 end
