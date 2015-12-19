@@ -10,12 +10,12 @@ menu.
   <li>
     <%= link_to dish.name, dish_path(dish) %>
     <% if current_user.account == "admin" %>
-      <%= button_to "x", dish_path(dish), method: :delete %>
+      <%= link_to "x", dish_path(dish), method: :delete %>
     <% end %>
 
   <% end %>
 
   <% if current_user.account == "admin" %>
-    <%= link_to "add dish", new_dish_path %>
+    <%= button_to "add dish", new_dish_path, method: :get %>
   <% end %>
 </ul>
