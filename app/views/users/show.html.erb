@@ -42,6 +42,7 @@
   <table>
     <tr>
       <th>dish</th>
+      <th>table</th>
       <th>seat</th>
       <th>status</th>
       <th>time</th>
@@ -51,9 +52,10 @@
   <% if order && order.status == "open" %>
     <tr>
       <td><%= order.dish.name %></td>
+      <td><%= order.party.name %></td>
       <td><%= order.seat %></td>
       <td><%= order.status %></td>
-      <td><%= order.get_time_diff %> </td>
+      <td class="time"><%= order.get_time_diff %> </td>
     </tr>
   <% end %>
 

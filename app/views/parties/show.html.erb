@@ -1,29 +1,38 @@
 <%= render 'layouts/header' %>
 
-party #<%= @party.id %>
-<br>
-table <%= @party.name %>
+<div class="subheader">
 
-<%= link_to "back to tables", user_path %>
+  <div class="party">
+    party #<%= @party.id %>
+  </div>
 
-<div>add order</div>
-<%= link_to "bill", party_bill_path(@party.id) %>
+  <div class="table">
+    table <%= @party.name %>
+  </div>
+
+  <div class="back">
+    <%= link_to "back to tables", user_path %>
+  </div>
+</div>
+
+<div>
+  <h5>orders</h5>
+</div>
 
 
-<h4>orders</h4>
 
     <%= form_for @order, url: party_orders_path(@party.id) do |f| %>
-    <%= f.label 'seat' %>
-    <%= f.select (:seat) do %>
-      <% @seats.each do |c| -%>
-        <%= content_tag(:option, c, value: c) %>
+      <%= f.label 'dish' %>
+      <%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: :true %>
+      <%= f.label 'seat' %>
+      <%= f.select (:seat) do %>
+        <% @seats.each do |c| -%>
+          <%= content_tag(:option, c, value: c) %>
+        <% end %>
       <% end %>
-    <% end %>
-    <%= f.label 'dish' %>
-    <%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: :true %>
-    <%= f.hidden_field :party_id, :value => @party.id %>
-    <%= f.hidden_field :status, :value => "open" %>
-    <%= f.submit "add" %>
+      <%= f.hidden_field :party_id, :value => @party.id %>
+      <%= f.hidden_field :status, :value => "open" %>
+      <%= f.submit "add" %>
     <% end %>
 
   <table>
@@ -41,7 +50,7 @@ table <%= @party.name %>
       <td><%= order.dish.name %></td>
       <td><%= order.seat %></td>
       <td><%= order.status %></td>
-      <td><%= order.get_time_diff %> </td>
+      <td class="time"><%= order.get_time_diff %> </td>
       <td>
         <%= form_for order, url: order_path(order) do |f| %>
           <%= f.hidden_field :status, :value =>"closed" %>
@@ -52,3 +61,5 @@ table <%= @party.name %>
     <% end %>
     <% end %>
   </table>
+
+  <%= button_to "bill", party_bill_path(@party.id) %>

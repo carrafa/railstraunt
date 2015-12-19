@@ -1,15 +1,17 @@
 <h1>create new user</h1>
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :account %>
-  <%= f.select :account do %>
-    <% ['server', 'chef', 'admin'].each do |c| %>
-      <%= content_tag(:option, c, value: c) %>
-      <% end %>
+<div class="user-form">
+  <%= form_for @user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :account %>
+    <%= f.select :account do %>
+      <% ['server', 'chef', 'admin'].each do |c| %>
+        <%= content_tag(:option, c, value: c) %>
+        <% end %>
+    <% end %>
+    <%= f.submit 'create' %>
   <% end %>
-  <%= f.submit 'create' %>
-<% end %>
+</div>

@@ -18,6 +18,7 @@
 
 $(function() {
   menuSlider();
+  timeColor();
 });
 
 function menuSlider() {
@@ -27,4 +28,25 @@ function menuSlider() {
         'is-visible');
       e.preventDefault();
     });
+}
+
+var $time = $('.time')
+
+function timeColor() {
+  $time.each(function() {
+    var $scope = $(this)
+    var num = $scope.text()
+    if (num >= 30) {
+      $scope.css("color", "orangered")
+    }
+    if (num < 30) {
+      $scope.css("color", "darkorange")
+    }
+    if (num < 20) {
+      $scope.css("color", "gold")
+    }
+    if (num < 10) {
+      $scope.css("color", "forestgreen")
+    }
+  });
 }
