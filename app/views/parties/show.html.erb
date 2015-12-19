@@ -6,7 +6,7 @@ table <%= @party.name %>
 
 <%= link_to "back to tables", user_path %>
 
-<h4>add order</h4>
+<div>add order</div>
 <%= link_to "bill", party_bill_path(@party.id) %>
 
 
@@ -41,7 +41,7 @@ table <%= @party.name %>
       <td><%= order.dish.name %></td>
       <td><%= order.seat %></td>
       <td><%= order.status %></td>
-      <td><%= order.created_at.to_i %> </td>
+      <td><%= order.get_time_diff %> </td>
       <td>
         <%= form_for order, url: order_path(order) do |f| %>
           <%= f.hidden_field :status, :value =>"closed" %>

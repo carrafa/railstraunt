@@ -1,10 +1,23 @@
 <header>
-  oh i'm a header whaaaaaat
-  (<%= current_user.account %> account)
-  <% if current_user.account == "server" || current_user.account == "admin" %>
-    <%= link_to 'parties', user_path(current_user) %>
-  <% end %>
-  <%= link_to 'menu', dishes_path %>
-  <%= link_to 'ingredients', ingredients_path %>
-  <%= button_to "Log-Out", sessions_path, method: :delete %>
+  <h4>restaurant</h4>
+
+  <button type="button" class="js-menu-trigger sliding-panel-button">
+
+  menu
+</button>
+
+<nav class="js-menu sliding-panel-content">
+  <ul>
+    <li>
+      <% if current_user.account == "server" || current_user.account == "admin" %>
+        <%= link_to 'parties', user_path(current_user) %>
+      <% end %>
+    </li>
+    <li><%= link_to 'menu', dishes_path %></li>
+    <li>  <%= link_to 'ingredients', ingredients_path %></li>
+    <li><%= button_to "Log-Out", sessions_path, method: :delete %></li>
+  </ul>
+</nav>
+
+<div class="js-menu-screen sliding-panel-fade-screen"></div>
 </header>

@@ -21,7 +21,7 @@
       <td><%= order.dish.name %></td>
       <td><%= order.seat %></td>
       <td><%= order.status %></td>
-      <td><%= order.created_at.to_i %> </td>
+      <td class="time"><%= order.get_time_diff %> </td>
       <td><%= form_for order, url: order_path(order) do |f| %>
           <%= f.hidden_field :status, :value =>"closed" %>
           <%= f.submit "x" %>

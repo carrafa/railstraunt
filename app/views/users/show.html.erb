@@ -51,12 +51,12 @@
     </tr>
   <% current_user.orders.each do |order| %>
 
-  <% if order.status == "open" %>
+  <% if order && order.status == "open" %>
     <tr>
       <td><%= order.dish.name %></td>
       <td><%= order.seat %></td>
       <td><%= order.status %></td>
-      <td><%= order.created_at.to_i %> </td>
+      <td><%= order.get_time_diff %> </td>
     </tr>
   <% end %>
 
