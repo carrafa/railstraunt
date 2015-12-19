@@ -19,6 +19,18 @@ class OrdersController < ApplicationController
     redirect_to party_path(order.party_id)
   end
 
+  def edit_multiple
+    party = Party.find(params[:id])
+  end
+
+  def update_multiple
+    party = Party.find(params[:party_id])
+    @orders = party.orders
+    @orders.update_all(status: "paid")
+
+    redirect_to party_bill_path(party)
+  end
+
 
   private
 

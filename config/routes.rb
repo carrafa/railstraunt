@@ -16,9 +16,12 @@ Rails.application.routes.draw do
   resources :parties do
     resources :orders, only: [:new, :create, :update]
     get '/bill' => 'parties#bill'
+    post '/multiple' =>'orders#edit_multiple'
+    put '/multiple' => 'orders#update_multiple'
   end
 
   resources :orders, only: [:show, :update]
+
 
   resources :dishes
   resources :ingredients

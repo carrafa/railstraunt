@@ -16,3 +16,14 @@
 </table>
 TOTAL:
 <%= @party.get_bill %>
+
+<br>
+
+<%= form_for :order, :url => party_multiple_path, :html => { :method => :put } do %>
+    <% @party.orders.each do |order| %>
+      <%= fields_for "order[]", order do |f| %>
+      <td><%= f.hidden_field :status, :value => "paid" %></td>
+      <% end %>
+    <% end %>
+    <%= submit_tag "mark as paid" %>
+<% end %>
