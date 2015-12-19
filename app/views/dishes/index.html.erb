@@ -1,11 +1,11 @@
 <%= render 'layouts/header' %>
 
 <h1>
-dishes, yum.
+menu.
 </h1>
 
 
-<ul>
+<ul class="dishes">
   <% @dishes.all.each do |dish| %>
   <li>
     <%= link_to dish.name, dish_path(dish) %>

@@ -1,21 +1,18 @@
 <header>
   <h4>restaurant</h4>
-
-  <button type="button" class="js-menu-trigger sliding-panel-button">
-
-  menu
-</button>
+  <button type="button" class="js-menu-trigger sliding-panel-button"><%= fa_icon "bars" %></button>
 
 <nav class="js-menu sliding-panel-content">
   <ul>
+    <li><%= current_user.username %></li>
+    <li><%= link_to 'menu', dishes_path %></li>
+    <li><%= link_to 'ingredients', ingredients_path %></li>
     <li>
       <% if current_user.account == "server" || current_user.account == "admin" %>
-        <%= link_to 'parties', user_path(current_user) %>
+      <%= link_to 'parties', user_path(current_user) %>
       <% end %>
     </li>
-    <li><%= link_to 'menu', dishes_path %></li>
-    <li>  <%= link_to 'ingredients', ingredients_path %></li>
-    <li><%= button_to "Log-Out", sessions_path, method: :delete %></li>
+    <li id="log-out"><%= link_to "log out", sessions_path, method: :delete %></li>
   </ul>
 </nav>
 

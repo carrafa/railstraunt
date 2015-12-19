@@ -1,3 +1,10 @@
+// #log-out{
+//   position: absolute;
+//   width: 100%;
+//   padding: .5em;
+//   bottom: .5em;
+// }
+
 .sliding-panel-content {
   $action-color: #477DCA !default;
   $dark-gray: #333 !default;
@@ -8,6 +15,8 @@
   $sliding-panel-background-hover: $action-color;
   $sliding-panel-color-hover: #fff;
   $sliding-panel-background-focus: lighten($sliding-panel-background, 5%);
+
+  padding: .5em;
 
   @include position(fixed, 0px auto 0px 0px);
   @include size(220px 100%);
@@ -43,6 +52,12 @@
       background-color: $sliding-panel-background-hover;
       color: $sliding-panel-color-hover;
     }
+
+  }
+  
+  li:last-child{
+    position: absolute;
+    bottom: .5em;
   }
 
   &.is-visible {
@@ -68,7 +83,9 @@
   padding: 10px 16px;
   display: inline-block;
   cursor: pointer;
-  position: relative;
+  position: fixed;
+  top: .5em;
+  left: .5em;
   outline: none;
 
   img {
