@@ -8,6 +8,10 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
   <%= f.label :vegetarian %>
-  <%= f.number_field :vegetarian %>
+  <%= f.select :vegetarian do %>
+    <% [['carnivorous', 0], ['vegetarian', 1], ['vegan', 2]].each do |c| %>
+      <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+  <% end %>
   <%= f.submit 'submit' %>
 <% end %>

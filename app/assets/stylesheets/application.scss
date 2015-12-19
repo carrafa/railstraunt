@@ -20,6 +20,7 @@
 @import "welcome";
 @import "dishes";
 @import "menu";
+@import "users";
 @import "font-awesome";
 
 
@@ -68,4 +69,8 @@ header{
 
 .back{
   text-align: right;
+}
+
+.error{
+  color: orangered;
 }

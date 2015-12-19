@@ -6,6 +6,8 @@
     <%= f.text_field :username %>
     <%= f.label :password %>
     <%= f.password_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
     <%= f.label :account %>
     <%= f.select :account do %>
       <% ['server', 'chef', 'admin'].each do |c| %>
@@ -13,5 +15,13 @@
         <% end %>
     <% end %>
     <%= f.submit 'create' %>
+  <% end %>
+</div>
+
+<div class="error-container">
+  <% if flash[:error] %>
+    <% flash[:error].each do |error| %>
+      <p class="error"> <%= error %> </p>
+    <% end %>
   <% end %>
 </div>

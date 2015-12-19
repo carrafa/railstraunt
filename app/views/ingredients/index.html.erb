@@ -7,13 +7,13 @@
   <li>
     <%= link_to ingredient.name, ingredient_path(ingredient) %>
     <% if current_user.account == "admin" %>
-      <%= button_to "x", ingredient_path(ingredient), method: :delete %>
+      <%= link_to "x", ingredient_path(ingredient), method: :delete %>
     <% end %>
   </li>
   <% end %>
     <% if current_user.account == "admin" %>
     <li>
-    <%= link_to "add ingredient", new_ingredient_path %>
+    <%= button_to "add ingredient", new_ingredient_path, method: :get %>
     <% end %>
   </li>
 </ul>

@@ -49,7 +49,7 @@
     </tr>
   <% current_user.orders.each do |order| %>
 
-  <% if order && order.status == "open" %>
+  <% if order.status == "open" %>
     <tr>
       <td><%= order.dish.name %></td>
       <td><%= order.party.name %></td>
