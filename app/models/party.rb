@@ -18,7 +18,9 @@ class Party < ActiveRecord::Base
   def get_bill
     bill = []
     self.orders.each do |order|
+      if order.status != "paid"
       bill.push(order.dish.price)
+    end
     end
     return bill.inject(:+)
   end

@@ -20,15 +20,16 @@ class OrdersController < ApplicationController
   end
 
   def edit_multiple
-    party = Party.find(params[:id])
+    party = Party.find(params[:party_id])
   end
 
   def update_multiple
     party = Party.find(params[:party_id])
-    @orders = party.orders
-    @orders.update_all(status: "paid")
-
-    redirect_to party_bill_path(party)
+    params['order'].keys.each do |id|
+      @orders = party.orders
+      @orders.update_all(params['order'][id])
+    end
+    redirect_to user_path(current_user)
   end
 
 

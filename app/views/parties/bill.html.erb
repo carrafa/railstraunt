@@ -7,11 +7,14 @@
   </tr>
 <% @party.orders.each do |order| %>
 
+  <% if order.status != "paid" %>
+
   <tr>
     <td><%= order.dish.name %></td>
     <td>$<%= order.dish.price %></td>
     </td>
   </tr>
+  <% end %>
   <% end %>
 </table>
 TOTAL:

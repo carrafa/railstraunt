@@ -31,17 +31,16 @@ table <%= @party.name %>
       <th>dish</th>
       <th>seat</th>
       <th>status</th>
-      <th>price</th>
       <th>time</th>
       <th>close</th>
     </tr>
   <% @party.orders.each do |order| %>
+    <% if order.status =="open" %>
 
     <tr>
       <td><%= order.dish.name %></td>
       <td><%= order.seat %></td>
       <td><%= order.status %></td>
-      <td>$<%= order.dish.price %></td>
       <td><%= order.created_at.to_i %> </td>
       <td><%= form_for order, url: order_path(order) do |f| %>
           <%= f.hidden_field :status, :value =>"closed" %>
@@ -50,6 +49,5 @@ table <%= @party.name %>
       </td>
     </tr>
     <% end %>
+    <% end %>
   </table>
-TOTAL:
-<%= @party.get_bill %>
