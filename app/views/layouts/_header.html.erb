@@ -11,18 +11,23 @@
     <li><%= link_to 'menu', dishes_path %></li>
     <li><%= link_to 'ingredients', ingredients_path %></li>
     <li>
+      <% if current_user.account == "chef" %>
+        <%= link_to 'orders', orders_path %>
+      <% end %>
+    </li>
+    <li>
       <% if current_user.account == "server" || current_user.account == "admin" %>
-      <%= link_to 'parties', user_path(current_user) %>
+        <%= link_to 'parties', user_path(current_user) %>
       <% end %>
     </li>
     <li>
       <% if current_user.account == "admin" %>
-      <%= link_to 'history', orders_history_path %>
+        <%= link_to 'history', orders_history_path %>
       <% end %>
     </li>
     <li>
       <% if current_user.account == "admin" %>
-      <%= link_to 'stats', orders_stats_path %>
+        <%= link_to 'stats', orders_stats_path %>
       <% end %>
     </li>
     <li><%= link_to "log out", sessions_path, method: :delete %></li>
