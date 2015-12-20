@@ -6,8 +6,8 @@
   <tr>
     <th>party</th>
     <th>table</th>
-    <th>status</th>
-    <th>close</th>
+    <th class="mobile-hide">status</th>
+    <th class="mobile-hide">close</th>
   </tr>
   <% current_user.parties.each do |party| %>
     <% if party.status == "open" %>
@@ -18,10 +18,10 @@
         <td>
           <%= link_to "Table " + party.table, party_path(party) %>
         </td>
-        <td>
+        <td class="mobile-hide">
           <%= party.status %>
         </td>
-        <td>
+        <td class="mobile-hide">
           <%= form_for party, url: party_path(party.id), method: :put do |f| %>
             <%= f.hidden_field :status, :value =>"closed" %>
             <%= f.submit "x" %>
@@ -32,7 +32,7 @@
   <% end %>
 </table>
 
-<%= button_to "add party", new_user_party_path(current_user), method: :get %>
+<%= button_to "add party", new_user_party_path(current_user), :class => "add-party-button", method: :get %>
 
 
 <div> here are your open orders
@@ -42,9 +42,9 @@
   <table>
     <tr>
       <th>dish</th>
-      <th>table</th>
+      <th class="mobile-hide">table</th>
       <th>seat</th>
-      <th>status</th>
+      <th class="mobile-hide">status</th>
       <th>time</th>
     </tr>
   <% current_user.orders.each do |order| %>
@@ -52,9 +52,9 @@
   <% if order.status == "open" %>
     <tr>
       <td><%= order.dish.name %></td>
-      <td><%= order.party.table %></td>
+      <td class="mobile-hide"><%= order.party.table %></td>
       <td><%= order.seat %></td>
-      <td><%= order.status %></td>
+      <td class="mobile-hide"><%= order.status %></td>
       <td class="time"><%= order.get_time_diff %> </td>
     </tr>
   <% end %>

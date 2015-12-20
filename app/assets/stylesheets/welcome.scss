@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .welcome{
   text-align: center;
+
 }
 
 
@@ -12,5 +13,17 @@
 
 .welcome div a:last-child {
   margin-left: 100px;
+  @include media($mobile){
+    margin-left: 0px;
+  }
+
+}
+
+.welcome div a{
+  @include media($mobile){
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+  }
 
 }

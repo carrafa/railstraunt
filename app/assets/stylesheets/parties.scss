@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.new-order-form{
-  background-color: salmon;
-}
-
 .third{
   @include span-columns(4);
 }
@@ -16,10 +12,21 @@
   select{
     width: 100%;
   }
+  @include media($mobile){
+    @include span-columns(4);
+    @include shift(0);
+    display: inline-block;
+    margin: 0;
+  }
 }
 
 .seat-selection{
   @include span-columns(1);
+  @include media($mobile){
+    @include span-columns(4);
+    display: inline-block;
+    margin: 0;
+  }
 }
 
 .add-button{
@@ -27,5 +34,9 @@
   @include span-columns(1);
   input{
     margin-top: 2em;
+    width: 100%;
+  }
+  @include media($mobile){
+    @include span-columns(4);
   }
 }
