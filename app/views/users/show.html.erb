@@ -32,7 +32,7 @@
   <% end %>
 </table>
 
-<%= link_to "add party", new_user_party_path(current_user) %>
+<%= button_to "add party", new_user_party_path(current_user), method: :get %>
 
 
 <div> here are your open orders
