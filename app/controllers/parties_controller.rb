@@ -3,6 +3,11 @@ class PartiesController < ApplicationController
   before_action :authenticate!
   before_action :server_admin_authenticate!
 
+  def index
+    admin_authenticate!
+    @parties = Party.all
+  end
+
   def new
     @party = Party.new
   end

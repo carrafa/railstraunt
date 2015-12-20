@@ -16,8 +16,18 @@
       <% end %>
     </li>
     <li>
-      <% if current_user.account == "server" || current_user.account == "admin" %>
+      <% if current_user.account == "server" %>
         <%= link_to 'parties', user_path(current_user) %>
+      <% end %>
+    </li>
+    <li>
+      <% if current_user.account == "admin" %>
+        <%= link_to 'your parties', user_path(current_user) %>
+      <% end %>
+    </li>
+    <li>
+      <% if current_user.account == "admin" %>
+        <%= link_to 'all parties', parties_path %>
       <% end %>
     </li>
     <li>
