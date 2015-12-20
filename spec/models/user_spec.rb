@@ -14,6 +14,13 @@ RSpec.describe User, type: :model do
 
     end
 
+    it "user should be able to get most popular dish" do
+
+      actual = user.get_most_popular_dish
+      expected = "lumberjack breakfast"
+      expect(actual) == (expected)
+    end
+
 
 
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index]
 
   get '/orders/history' => 'orders#history'
+  get '/orders/stats' => 'orders#stats'
 
   resources :users
   resources :users do

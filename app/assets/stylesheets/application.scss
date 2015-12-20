@@ -105,3 +105,18 @@ tr td:last-child{
   text-align: right;
   color: $dark-gray;
 }
+
+.stats-table{
+  .left-column{
+    text-align: right;
+    border-right: 1px solid lightgray;
+    border-bottom: none;
+    padding-right: .5em;
+    font-weight: bolder;
+  }
+  .right-column{
+    text-align: left;
+    border-bottom: none;
+    padding-left: .5em;
+  }
+}

@@ -8,4 +8,26 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :username, length: {in: 2..10}
 
+  def get_total_orders
+    orders = Order.all
+    total = []
+    orders.each do |order|
+      total.push(order.dish.price)
+    end
+    return total.inject(:+)
+  end
+
+  def get_most_popular_dish
+    orders = Order.all
+    all_dishes = []
+    orders.each do |order|
+      all_dishes.push(order.dish.name)
+    end
+    freq = all_dishes.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    return all_dishes.max_by { |v| freq[v] }
+  end
+
+
+
+
 end

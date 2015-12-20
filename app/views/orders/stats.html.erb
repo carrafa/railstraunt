@@ -1,0 +1,12 @@
+<%= render 'layouts/header' %>
+
+<table class="stats-table">
+  <tr>
+    <td class="left-column">most popular dish</td>
+    <td class="right-column"><%= current_user.get_most_popular_dish %></td>
+  </tr>
+  <tr>
+    <td class="left-column">total revenue</td>
+    <td class="right-column">$<%= current_user.get_total_orders %></td>
+  </tr>
+</table>

@@ -7,6 +7,10 @@ class OrdersController < ApplicationController
   def history
     @orders = Order.all
   end
+  
+  def stats
+    @orders = Order.all
+  end
 
   def new
     @order = Order.new
