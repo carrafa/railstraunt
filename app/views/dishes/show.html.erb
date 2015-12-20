@@ -4,21 +4,36 @@
   <%= @dish.name %>
 </h1>
 
+<div class="subheader">
+
+    <div class="back">
+      <%= link_to "back", dishes_path %>
+    </div>
+</div>
+
+<div class="dishes">
 <p>
   <%= @dish.description %>
 </p>
 
+<div>
+  <h5>ingredients</h5>
+</div>
 <ul>
-<% @dish.ingredients.each do |ingredient| %>
-  <li><%= ingredient.name %></li>
+<% @recipes.each do |recipe| %>
+  <li>
+    <%= recipe.ingredient.name %>
+    <%= link_to "x", recipe_path(recipe, @dish.id), method: :delete  %>
+  </li>
   <% end %>
 </ul>
 
 <% if current_user.account == "admin" %>
   <div>add ingredients to this dish</div>
-  <%= form_for @recipe do |f| %>
+  <%= form_for @new_recipe, url: recipes_path(@dish) do |f| %>
     <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name, include_blank: true %>
     <%= f.hidden_field :dish_id, :value => @dish.id %>
   <%= f.submit "add"%>
     <% end %>
 <% end %>
+</div>

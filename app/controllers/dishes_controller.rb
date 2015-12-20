@@ -14,7 +14,8 @@ class DishesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.new
+    @new_recipe = Recipe.new
+    @recipes = Recipe.where(dish_id: params[:id] )
     @dish = Dish.find(params[:id])
   end
 

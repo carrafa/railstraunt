@@ -4,18 +4,65 @@
 menu.
 </h1>
 
+<div class="dishes">
 
-<ul class="dishes">
-  <% @dishes.all.each do |dish| %>
-  <li>
-    <%= link_to dish.name, dish_path(dish) %>
-    <% if current_user.account == "admin" %>
-      <%= link_to "x", dish_path(dish), method: :delete %>
+<h6>breakfast</h6>
+  <ul class="breakfast">
+    <% @dishes.all.each do |dish| %>
+    <% if dish.course == "breakfast" %>
+      <li>
+        <%= link_to dish.name, dish_path(dish) %>
+        <% if current_user.account == "admin" %>
+          <%= link_to "x", dish_path(dish), :class => "remove", method: :delete %>
+        <% end %>
+
+      <% end %>
     <% end %>
+  </ul>
 
-  <% end %>
+<h6>lunch</h6>
+  <ul class="lunch">
+    <% @dishes.all.each do |dish| %>
+    <% if dish.course == "lunch" %>
+      <li>
+        <%= link_to dish.name, dish_path(dish) %>
+        <% if current_user.account == "admin" %>
+          <%= link_to "x", dish_path(dish), :class => "remove", method: :delete %>
+        <% end %>
 
-  <% if current_user.account == "admin" %>
-    <%= button_to "add dish", new_dish_path, method: :get %>
-  <% end %>
-</ul>
+      <% end %>
+    <% end %>
+  </ul>
+
+<h6>dinner</h6>
+  <ul class="dinner">
+    <% @dishes.all.each do |dish| %>
+    <% if dish.course == "dinner" %>
+      <li>
+        <%= link_to dish.name, dish_path(dish) %>
+        <% if current_user.account == "admin" %>
+          <%= link_to "x", dish_path(dish), :class => "remove", method: :delete %>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  </ul>
+
+<h6>sides</h6>
+  <ul class="sides">
+    <% @dishes.all.each do |dish| %>
+    <% if dish.course == "sides" %>
+      <li>
+        <%= link_to dish.name, dish_path(dish) %>
+        <% if current_user.account == "admin" %>
+          <%= link_to "x", dish_path(dish), :class => "remove", method: :delete %>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  </ul>
+
+    <% if current_user.account == "admin" %>
+      <%= button_to "add dish", new_dish_path, method: :get %>
+    <% end %>
+</div>

@@ -4,6 +4,22 @@
 
 
 .dishes{
+  text-align: center;
   @include span-columns(8);
-  @include shift(4);
+  @include shift(2);
+
+  h6{
+    margin-top: 1em;
+  }
+
+  form{
+    margin-top: 1em;
+  }
+
+}
+
+.remove {
+  margin-left: 1em;
+  color:orangered;
+
 }

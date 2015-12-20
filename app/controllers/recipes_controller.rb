@@ -10,13 +10,13 @@ class RecipesController < ApplicationController
 
   def create
     Recipe.create(recipe_params)
-    redirect_to dishes_path
+    redirect_to dish_path(params[:format])
   end
 
   def destroy
     recipe = Recipe.find(params[:id])
     recipe.destroy
-    redirect_to ingredients_path
+    redirect_to dish_path(params[:format])
   end
 
   private

@@ -1,9 +1,11 @@
 <%= render 'layouts/header' %>
+<%= link_to "back", party_path(@party) %>
 
 <table>
   <tr>
     <th>dish</th>
     <th>price</th>
+    <th></th>
   </tr>
 <% @party.orders.each do |order| %>
 
@@ -12,6 +14,12 @@
   <tr>
     <td><%= order.dish.name %></td>
     <td>$<%= order.dish.price %></td>
+    <td>
+      <%= form_for order, url: order_path(order) do |f| %>
+        <%= f.hidden_field :status, :value =>"paid" %>
+        <%= f.submit "x" %>
+      <% end %>
+    </td>
     </td>
   </tr>
   <% end %>
@@ -28,5 +36,5 @@ TOTAL:
       <td><%= f.hidden_field :status, :value => "paid" %></td>
       <% end %>
     <% end %>
-    <%= submit_tag "mark as paid" %>
+    <%= submit_tag "close bill" %>
 <% end %>
