@@ -4,6 +4,8 @@ class Party < ActiveRecord::Base
   has_many :orders
   has_many :dishes, through: :orders
 
+  validates :user_id, presence: true
+
   def populate_seats num
     seats = {
       "A" => ["A1", "A2"],

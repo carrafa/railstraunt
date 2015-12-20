@@ -8,8 +8,8 @@
 </div>
 
 <%= form_for @party, url: user_parties_path(current_user) do |f| %>
-  <%= f.label "table" %>
-  <%= f.select :name do %>
+  <%= f.label :table %>
+  <%= f.select :table do %>
     <% ['A','B','C','D','E'].each do |c| %>
       <%= content_tag(:option, c, value: c) %>
       <% end %>

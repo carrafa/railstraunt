@@ -16,16 +16,16 @@
           <%= party.id %>
         </td>
         <td>
-          <%= link_to "Table " + party.name, party_path(party) %>
+          <%= link_to "Table " + party.table, party_path(party) %>
         </td>
         <td>
           <%= party.status %>
         </td>
         <td>
           <%= form_for party, url: party_path(party.id), method: :put do |f| %>
-              <%= f.hidden_field :status, :value =>"closed" %>
-              <%= f.submit "x" %>
-              <% end %>
+            <%= f.hidden_field :status, :value =>"closed" %>
+            <%= f.submit "x" %>
+          <% end %>
         </td>
       </tr>
     <% end %>
@@ -52,7 +52,7 @@
   <% if order.status == "open" %>
     <tr>
       <td><%= order.dish.name %></td>
-      <td><%= order.party.name %></td>
+      <td><%= order.party.table %></td>
       <td><%= order.seat %></td>
       <td><%= order.status %></td>
       <td class="time"><%= order.get_time_diff %> </td>

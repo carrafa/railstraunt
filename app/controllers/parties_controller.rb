@@ -1,6 +1,7 @@
 class PartiesController < ApplicationController
 
   before_action :authenticate!
+  before_action :server_admin_authenticate!
 
   def new
     @party = Party.new
@@ -25,7 +26,7 @@ class PartiesController < ApplicationController
     @party = Party.find(params[:id])
     @order = Order.new
     @orders = Order.where(id = @party.id)
-    @seats = @party.populate_seats @party.name
+    @seats = @party.populate_seats @party.table
   end
 
   def bill
@@ -35,7 +36,7 @@ class PartiesController < ApplicationController
   private
 
   def party_params
-    params.require(:party).permit(:name, :status)
+    params.require(:party).permit(:table, :status)
   end
 
 end
