@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :username, length: {in: 2..10}
 
-  def get_total_orders
+  def get_total_revenue
     orders = Order.all
     total = []
     orders.each do |order|
@@ -27,6 +27,15 @@ class User < ActiveRecord::Base
     return all_dishes.max_by { |v| freq[v] }
   end
 
+  def get_total_parties
+    parties = Party.all
+    return parties.to_a.count
+  end
+
+  def get_total_dishes
+    dishes = Dish.all
+    return dishes.to_a.count
+  end
 
 
 

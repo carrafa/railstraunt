@@ -112,11 +112,13 @@ tr td:last-child{
     border-right: 1px solid lightgray;
     border-bottom: none;
     padding-right: .5em;
+    font-size: 1.2em;
     font-weight: bolder;
   }
   .right-column{
     text-align: left;
     border-bottom: none;
     padding-left: .5em;
+    border-top: .2em solid rgba(0,0,0,0);
   }
 }

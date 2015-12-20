@@ -7,6 +7,14 @@
   </tr>
   <tr>
     <td class="left-column">total revenue</td>
-    <td class="right-column">$<%= current_user.get_total_orders %></td>
+    <td class="right-column">$<%= current_user.get_total_revenue %></td>
+  </tr>
+  <tr>
+    <td class="left-column">total dishes</td>
+    <td class="right-column"><%= current_user.get_total_dishes %></td>
+  </tr>
+  <tr>
+    <td class="left-column">total parties</td>
+    <td class="right-column"><%= current_user.get_total_parties %></td>
   </tr>
 </table>

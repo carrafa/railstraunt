@@ -21,6 +21,12 @@ RSpec.describe User, type: :model do
       expect(actual) == (expected)
     end
 
+    it "user should be able to count total dishes" do
+      actual = user.get_total_dishes
+      expected = 12
+      expect(actual) == (expected)
+    end
+
 
 
 end
