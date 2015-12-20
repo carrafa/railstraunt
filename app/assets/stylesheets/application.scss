@@ -90,11 +90,18 @@ select{
   font-size: 1.5em;
 }
 
-
 tr th:last-child{
   text-align: right;
 }
 
 tr td:last-child{
   text-align: right;
+}
+
+#clock{
+  position: fixed;
+  top: .5em;
+  right: .5em;
+  text-align: right;
+  color: $dark-gray;
 }
