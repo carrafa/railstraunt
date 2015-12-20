@@ -4,4 +4,5 @@ RSpec.describe Dish, type: :model do
 
 
 
+
 end

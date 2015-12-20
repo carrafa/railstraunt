@@ -1,19 +1,31 @@
 <%= render 'layouts/header' %>
 
-<div class="subheader">ingredients, yum.</div>
-
-<ul>
-  <% @ingredients.each do |ingredient| %>
-  <li>
-    <%= link_to ingredient.name, ingredient_path(ingredient) %>
-    <% if current_user.account == "admin" %>
-      <%= link_to "x", ingredient_path(ingredient), method: :delete %>
+<div class="ingredients">
+  <div>here's what's in the kitchen</div>
+  <table>
+    <tr>
+      <th>ingredient</th>
+      <th>
+        <% if current_user.account == "admin" %>
+        remove
+        <% end %>
+      </th>
+    </tr>
+    <% @ingredients.each do |ingredient| %>
+    <tr>
+      <td><%= link_to ingredient.name, ingredient_path(ingredient) %></td>
+      <td>
+        <% if current_user.account == "admin" %>
+        <%= link_to "x", ingredient_path(ingredient), :class => "remove", method: :delete %>
+        <% end %>
+      </td>
+    </tr>
     <% end %>
-  </li>
-  <% end %>
-    <% if current_user.account == "admin" %>
-    <li>
-    <%= button_to "add ingredient", new_ingredient_path, method: :get %>
-    <% end %>
-  </li>
-</ul>
+  </table>
+      <% if current_user.account == "admin" %>
+      <div>
+      <%= button_to "add ingredient", new_ingredient_path, method: :get %>
+      <% end %>
+    </div>
+  </ul>
+</div>

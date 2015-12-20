@@ -25,6 +25,7 @@ Dish.create ({name: "kale salad", course: "sides", description: "because I live 
 Dish.create ({name: "bruschetta", course: "sides", description: "toasted buttery bread with tomatoes", price: 6})
 
 Ingredient.create ({name: "chicken", description: "it's like a funny looking bird.  like a small, dumb eagle.", vegetarian: 0 })
+Ingredient.create ({name: "duck", description: "like a chicken only different", vegetarian: 0 })
 Ingredient.create ({name: "beef", description: "comes from a large animal called a cow.", vegetarian: 0 })
 Ingredient.create ({name: "bacon", description: "from a magical animal.", vegetarian: 0 })
 Ingredient.create ({name: "guanciale", description: "from a magical animal.", vegetarian: 0 })

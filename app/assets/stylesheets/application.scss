@@ -20,6 +20,7 @@
 @import "welcome";
 @import "dishes";
 @import "menu";
+@import "ingredients";
 @import "users";
 @import "font-awesome";
 
@@ -74,4 +75,9 @@ header{
 
 .error{
   color: orangered;
+}
+
+.remove {
+  margin-left: 1em;
+  color:orangered;
 }
