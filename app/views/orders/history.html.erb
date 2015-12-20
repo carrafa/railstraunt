@@ -1,0 +1,27 @@
+<%= render 'layouts/header' %>
+
+<div>order history</div>
+
+<div>
+
+  <table>
+    <tr>
+      <th>dish</th>
+      <th>seat</th>
+      <th>price</th>
+      <th>date</th>
+      <th>status</th>
+    </tr>
+  <% @orders.each do |order| %>
+
+    <tr>
+      <td><%= order.dish.name %></td>
+      <td><%= order.seat %></td>
+      <td>$<%= order.dish.price %></td>
+      <td><%= order.created_at %></td>
+      <td><%= order.status %></td>
+    </tr>
+
+  <% end %>
+  </table>
+</div>

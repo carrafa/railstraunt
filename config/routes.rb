@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index]
 
+  get '/orders/history' => 'orders#history'
+
   resources :users
   resources :users do
     resources :parties, only: [:new, :create, :update, :edit]

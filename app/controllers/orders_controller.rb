@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
+  def history
+    @orders = Order.all
+  end
+
   def new
     @order = Order.new
   end
