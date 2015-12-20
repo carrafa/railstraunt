@@ -10,4 +10,8 @@ module ApplicationHelper
     redirect_to root_path unless current_user
   end
 
+  def admin_authenticate!
+    redirect_to root_path unless current_user.account == "admin"
+  end
+
 end

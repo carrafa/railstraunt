@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
 
+  before_action :authenticate!
+
   def index
     @recipes = Recipe.all
   end
@@ -9,11 +11,13 @@ class RecipesController < ApplicationController
   end
 
   def create
+    admin_authenticate!
     Recipe.create(recipe_params)
     redirect_to dish_path(params[:format])
   end
 
   def destroy
+    admin_authenticate!
     recipe = Recipe.find(params[:id])
     recipe.destroy
     redirect_to dish_path(params[:format])

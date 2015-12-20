@@ -1,5 +1,7 @@
 class IngredientsController < ApplicationController
 
+  before_action :authenticate!
+
   def index
     @ingredients = Ingredient.all
   end
@@ -13,11 +15,13 @@ class IngredientsController < ApplicationController
   end
 
   def create
+    admin_authenticate!
     Ingredient.create(ingredient_params)
     redirect_to ingredients_path
   end
 
   def destroy
+    admin_authenticate!
     ingredient = Ingredient.find(params[:id])
     ingredient.destroy
     redirect_to ingredients_path

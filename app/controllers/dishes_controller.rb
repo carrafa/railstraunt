@@ -1,5 +1,7 @@
 class DishesController < ApplicationController
 
+  before_action :authenticate!
+
   def index
     @dishes = Dish.all
   end
@@ -9,6 +11,7 @@ class DishesController < ApplicationController
   end
 
   def create
+    admin_authenticate!
     Dish.create(dish_params)
     redirect_to dishes_path
   end
@@ -20,6 +23,7 @@ class DishesController < ApplicationController
   end
 
   def destroy
+    admin_authenticate!
     dish = Dish.find(params[:id])
     dish.destroy
     redirect_to dishes_path

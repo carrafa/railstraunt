@@ -1,14 +1,18 @@
 class OrdersController < ApplicationController
 
+  before_action :authenticate!
+
   def index
     @orders = Order.all
   end
 
   def history
+    admin_authenticate!
     @orders = Order.all
   end
-  
+
   def stats
+    admin_authenticate!
     @orders = Order.all
   end
 
