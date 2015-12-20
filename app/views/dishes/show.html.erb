@@ -23,7 +23,9 @@
 <% @recipes.each do |recipe| %>
   <li>
     <%= recipe.ingredient.name %>
-    <%= link_to "x", recipe_path(recipe, @dish.id), method: :delete  %>
+    <% if current_user.account == "admin" %>
+      <%= link_to "x", recipe_path(recipe, @dish.id), method: :delete  %>
+    <% end %>
   </li>
   <% end %>
 </ul>

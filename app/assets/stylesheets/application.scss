@@ -25,8 +25,8 @@
 @import "parties";
 @import "font-awesome";
 
-$header-font: 'Rokkitt', serif;
-$main-font: 'Ubuntu', sans-serif;
+$header-font: 'Ubuntu', sans-serif;
+$main-font: 'Didact Gothic', sans-serif;
 
 $default-color: #477dca;
 
@@ -87,7 +87,14 @@ header{
 
 select{
   border: 1px solid $default-color;
-  option{
-    font-size: 2em;
-  }
+  font-size: 1.5em;
+}
+
+
+tr th:last-child{
+  text-align: right;
+}
+
+tr td:last-child{
+  text-align: right;
 }
