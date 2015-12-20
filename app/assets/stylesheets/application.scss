@@ -22,10 +22,13 @@
 @import "menu";
 @import "ingredients";
 @import "users";
+@import "parties";
 @import "font-awesome";
 
 $header-font: 'Rokkitt', serif;
 $main-font: 'Ubuntu', sans-serif;
+
+$default-color: #477dca;
 
 body{
   font-family: $main-font;
@@ -80,4 +83,11 @@ header{
 .remove {
   margin-left: 1em;
   color:orangered;
+}
+
+select{
+  border: 1px solid $default-color;
+  option{
+    font-size: 2em;
+  }
 }

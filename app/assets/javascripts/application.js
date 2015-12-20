@@ -19,7 +19,6 @@
 $(function() {
   menuSlider();
   timeColor();
-  errorModal();
 });
 
 function menuSlider() {

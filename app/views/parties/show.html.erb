@@ -21,18 +21,24 @@
 
 
 
-    <%= form_for @order, url: party_orders_path(@party.id) do |f| %>
-      <%= f.label 'dish' %>
-      <%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: :true %>
-      <%= f.label 'seat' %>
-      <%= f.select (:seat) do %>
-        <% @seats.each do |c| -%>
-          <%= content_tag(:option, c, value: c) %>
+    <%= form_for @order, url: party_orders_path(@party.id), :html => { :class => "new-order-form"} do |f| %>
+      <div class="dropdown">
+        <%= f.label 'dish' %>
+        <%= f.collection_select :dish_id, Dish.all, :id, :name, include_blank: :true %>
+      </div>
+      <div class="seat-selection">
+        <%= f.label 'seat' %>
+        <%= f.select (:seat) do %>
+          <% @seats.each do |c| -%>
+            <%= content_tag(:option, c, value: c) %>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= f.hidden_field :party_id, :value => @party.id %>
-      <%= f.hidden_field :status, :value => "open" %>
-      <%= f.submit "add" %>
+        <%= f.hidden_field :party_id, :value => @party.id %>
+        <%= f.hidden_field :status, :value => "open" %>
+      </div>
+      <div class="add-button">
+        <%= f.submit "add" %>
+      </div>
     <% end %>
 
   <table>

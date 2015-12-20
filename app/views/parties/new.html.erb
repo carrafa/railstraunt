@@ -1,5 +1,12 @@
 <%= render 'layouts/header' %>
 
+
+<div class="subheader">
+  <div class="back">
+    <%= link_to "back to tables", user_path(current_user) %>
+  </div>
+</div>
+
 <%= form_for @party, url: user_parties_path(current_user) do |f| %>
   <%= f.label "table" %>
   <%= f.select :name do %>
