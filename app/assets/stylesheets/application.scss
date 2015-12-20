@@ -32,19 +32,35 @@ $default-color: #477dca;
 
 body{
   font-family: $main-font;
+  padding: 1em;
   @include outer-container;
+  @include media($mobile){
+    background-color: gold;
+    padding: .5em;
+    font-size: 2em;
+  }
+  @include media($medium-screen){
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
   text-align: center;
   margin: 0;
+
 }
 
-h1{font-size: 7em;}
+h1{
+  font-size: 7em;
+
+}
 h2{font-size: 6em;}
 h3{font-size: 5em;}
-h4{font-size: 4em;}
+h4{font-size: 4em;
+  @include media($mobile){
+    font-size: 2em;
+  }
+}
 h5{font-size: 3em;}
 h6{font-size: 2em;}
 
