@@ -20,13 +20,15 @@
         <%= f.submit "x" %>
       <% end %>
     </td>
-    </td>
   </tr>
   <% end %>
   <% end %>
+  <tr>
+    <td>TOTAL:</td>
+    <td>$<%= @party.get_bill %></td>
+    <td></td>
+  </tr>
 </table>
-TOTAL:
-<%= @party.get_bill %>
 
 <br>
 

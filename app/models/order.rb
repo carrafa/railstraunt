@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
   belongs_to :party
   belongs_to :dish
 
+  validates :dish_id, presence: true
+  validates :party_id, presence: true
 
   def get_time_diff
     time = Time.new.to_i

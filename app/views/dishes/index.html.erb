@@ -12,6 +12,7 @@ menu.
     <% if dish.course == "breakfast" %>
       <li>
         <%= link_to dish.name, dish_path(dish) %>
+          $<%= dish.price %>
         <% if current_user.account == "admin" %>
           <%= link_to "x", dish_path(dish), :class => "remove", method: :delete %>
         <% end %>
@@ -26,6 +27,7 @@ menu.
     <% if dish.course == "lunch" %>
       <li>
         <%= link_to dish.name, dish_path(dish) %>
+        $<%= dish.price %>
         <% if current_user.account == "admin" %>
           <%= link_to "x", dish_path(dish), :class => "remove", method: :delete %>
         <% end %>
@@ -40,6 +42,7 @@ menu.
     <% if dish.course == "dinner" %>
       <li>
         <%= link_to dish.name, dish_path(dish) %>
+        $<%= dish.price %>
         <% if current_user.account == "admin" %>
           <%= link_to "x", dish_path(dish), :class => "remove", method: :delete %>
         <% end %>
@@ -54,6 +57,7 @@ menu.
     <% if dish.course == "sides" %>
       <li>
         <%= link_to dish.name, dish_path(dish) %>
+        $<%= dish.price %>
         <% if current_user.account == "admin" %>
           <%= link_to "x", dish_path(dish), :class => "remove", method: :delete %>
         <% end %>

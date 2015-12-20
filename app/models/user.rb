@@ -37,6 +37,22 @@ class User < ActiveRecord::Base
     return dishes.to_a.count
   end
 
+  def get_average_dish_price
+    dishes = Dish.all
+    total = []
+    dishes.each do |dish|
+      total.push(dish.price)
+    end
+    avg = total.sum/total.count
+    return avg
+  end
 
+  def get_most_expensive_dish
+    dishes = Dish.all
+    total = []
+    dishes.each do |dish|
+      total.push(dish.price)
+    end
+  end
 
 end
