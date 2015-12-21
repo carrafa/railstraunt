@@ -1,11 +1,14 @@
 <%= render 'layouts/header' %>
-<%= link_to "back", party_path(@party) %>
+
+<div class="back">
+  <%= link_to "back", party_path(@party) %>
+</div>
 
 <table>
   <tr>
     <th>dish</th>
-    <th>price</th>
-    <th></th>
+    <th class="right">price</th>
+    <th class="mobile-hide"></th>
   </tr>
 <% @party.orders.each do |order| %>
 
@@ -13,30 +16,59 @@
 
   <tr>
     <td><%= order.dish.name %></td>
-    <td>$<%= order.dish.price %></td>
-    <td>
+    <td class="right">$<%= order.dish.price %></td>
+    <td class="mobile-hide">
       <%= form_for order, url: order_path(order) do |f| %>
         <%= f.hidden_field :status, :value =>"paid" %>
-        <%= f.submit "x" %>
+        <%= submit_tag "x", :class => "small-button" %>
       <% end %>
     </td>
   </tr>
   <% end %>
   <% end %>
   <tr>
-    <td>TOTAL:</td>
-    <td>$<%= @party.get_bill %></td>
-    <td></td>
+    <td>pre-tip:</td>
+    <td class="right">$<%= @party.get_bill %></td>
+    <td class="mobile-hide"></td>
+  </tr>
+  <tr>
+    <td>
+      <%= form_for @party, url: party_tip_path(@party.id), :html => { :method => :put} do |f| %>
+        <%= f.select (:tip) do %>
+          <%= content_tag(:option, "tip", value: 0) %>
+          <%= content_tag(:option, "15%", value: 15) %>
+          <%= content_tag(:option, "20%", value: 20) %>
+          <%= content_tag(:option, "25%", value: 25) %>
+        <% end %>
+      <% end %>
+    </td>
+    <td class="right">$
+      <% bill = @party.get_bill %>
+      <% tip = 0 %>
+      <% if @party.tip %>
+        <% tip = (@party.tip * bill)/100 %>
+      <% end %>
+      <% %>
+        <%= tip %>
+    </td>
+    <td class="mobile-hide"></td>
+  </tr>
+  <tr>
+    <td>TOTAL</td>
+    <% total = tip + bill %>
+    <td class="right">$<%= total %></td>
+    <td class="mobile-hide"></td>
   </tr>
 </table>
 
 <br>
 
 <%= form_for :order, :url => party_multiple_path, :html => { :method => :put } do %>
+
     <% @party.orders.each do |order| %>
       <%= fields_for "order[]", order do |f| %>
       <td><%= f.hidden_field :status, :value => "paid" %></td>
       <% end %>
     <% end %>
-    <%= submit_tag "close bill" %>
+    <%= submit_tag "close bill", :class => "full-width-button" %>
 <% end %>

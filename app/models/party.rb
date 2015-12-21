@@ -18,6 +18,7 @@ class Party < ActiveRecord::Base
     return seats[num]
   end
 
+
   def get_bill
     bill = []
     self.orders.each do |order|
@@ -27,6 +28,7 @@ class Party < ActiveRecord::Base
     end
     return bill.inject(:+)
   end
+
 
 
 end

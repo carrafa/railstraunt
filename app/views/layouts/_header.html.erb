@@ -3,7 +3,7 @@
   <button type="button" class="js-menu-trigger sliding-panel-button"><%= fa_icon "bars" %></button>
   <div id="clock">
     <div class="mobile-hide"><%= Time.now.month %>/<%= Time.now.day %>/<%= Time.now.year %><br></div>
-    <%= Time.now.hour %>:<%= Time.now.min %>
+    <%= Time.now.hour %>:<% if Time.now.min<10 %>0<% end %><%= Time.now.min %>
   </div>
 <nav class="js-menu sliding-panel-content">
   <ul>

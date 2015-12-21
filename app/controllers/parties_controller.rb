@@ -27,6 +27,13 @@ class PartiesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+
+  def update_tip
+    @party = Party.find(params[:party_id])
+    @party.update(party_params)
+    redirect_to party_path(@party.id)
+  end
+
   def show
     @party = Party.find(params[:id])
     @order = Order.new
@@ -41,7 +48,7 @@ class PartiesController < ApplicationController
   private
 
   def party_params
-    params.require(:party).permit(:table, :status)
+    params.require(:party).permit(:table, :status, :tip)
   end
 
 end

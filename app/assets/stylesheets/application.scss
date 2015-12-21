@@ -101,9 +101,10 @@ h6{font-size: 2em;
   }
 }
 
+
 .small-button{
   @include media($mobile){
-    padding: .1em;
+    padding: .0em;
   }
 }
 
@@ -138,6 +139,10 @@ header{
 }
 
 .back{
+  text-align: right;
+}
+
+.right{
   text-align: right;
 }
 

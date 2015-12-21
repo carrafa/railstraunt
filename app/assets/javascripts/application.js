@@ -19,6 +19,7 @@
 $(function() {
   menuSlider();
   timeColor();
+  tipFiller();
 });
 
 function menuSlider() {
@@ -50,3 +51,9 @@ function timeColor() {
     }
   });
 }
+
+function tipFiller() {
+  $('#party_tip').change(function() {
+    this.form.submit()
+  })
+};

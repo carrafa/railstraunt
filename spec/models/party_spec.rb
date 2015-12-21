@@ -9,6 +9,15 @@ RSpec.describe Party, type: :model do
   expect(actual).to eq(expected)
   end
 
+  it "should be able to get tip" do
+
+  party = Party.new
+  actual = party.tip
+  expected = 1
+
+  expect(actual) == expected
+  end
+
 
 
 end

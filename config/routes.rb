@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get '/bill' => 'parties#bill'
     post '/multiple' =>'orders#edit_multiple'
     put '/multiple' => 'orders#update_multiple'
+    put '/tip' => 'parties#update_tip'
   end
 
   resources :orders, only: [:show, :update]
