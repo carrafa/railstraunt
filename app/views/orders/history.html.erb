@@ -7,24 +7,24 @@
   <table>
     <tr>
       <th>dish</th>
-      <th>seat</th>
-      <th>price</th>
-      <th>date</th>
-      <th>status</th>
+      <th class="mobile-hide">seat</th>
+      <th class="mobile-right">price</th>
+      <th class="mobile-hide">date</th>
+      <th class="mobile-right">status</th>
     </tr>
   <% @orders.each do |order| %>
 
     <tr>
       <td><%= order.dish.name %></td>
-      <td><%= order.seat %></td>
-      <td>$<%= order.dish.price %></td>
-      <td>
+      <td class="mobile-hide"><%= order.seat %></td>
+      <td class="mobile-right">$<%= order.dish.price %></td>
+      <td class="mobile-hide">
         <%= order.created_at.month %>/<%= order.created_at.day %>/<%= order.created_at.year %>
         <%= order.created_at.hour %>:
         <% if order.created_at.min <10 %>
           0<% end %><%= order.created_at.min %>
       </td>
-      <td><%= order.status %></td>
+      <td class="mobile-right"><%= order.status %></td>
     </tr>
 
   <% end %>

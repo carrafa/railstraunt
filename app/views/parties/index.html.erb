@@ -2,22 +2,22 @@
 
 <table>
   <tr>
-    <th>party</th>
+    <th class="mobile-hide">party</th>
     <th>table</th>
-    <th>server</th>
+    <th class="mobile-hide">server</th>
     <th>status</th>
     <th>close</th>
   </tr>
   <% @parties.each do |party| %>
     <% if party.status == "open" %>
       <tr>
-        <td>
+        <td class="mobile-hide">
           <%= party.id %>
         </td>
         <td>
           <%= link_to "Table " + party.table, party_path(party) %>
         </td>
-        <td>
+        <td class="mobile-hide">
           <%= party.user.username %>
         </td>
         <td>

@@ -14,4 +14,9 @@
   tr td:last-child{
     text-align: right;
   }
+  @include media($mobile){
+    @include span-columns(4);
+    @include shift(0);
+    text-align: left;
+  }
 }

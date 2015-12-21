@@ -8,10 +8,10 @@
   <table>
     <tr>
       <th>dish</th>
-      <th>seat</th>
-      <th>status</th>
-      <th>time</th>
-      <th>close</th>
+      <th class="mobile-right">seat</th>
+      <th class="mobile-hide">status</th>
+      <th class="mobile-right">time</th>
+      <th class="mobile-hide">close</th>
     </tr>
   <% @orders.each do |order| %>
 
@@ -19,10 +19,10 @@
 
     <tr>
       <td><%= order.dish.name %></td>
-      <td><%= order.seat %></td>
-      <td><%= order.status %></td>
-      <td class="time"><%= order.get_time_diff %> </td>
-      <td>
+      <td class="mobile-right"><%= order.seat %></td>
+      <td class="mobile-hide"><%= order.status %></td>
+      <td class="time mobile-right"><%= order.get_time_diff %> </td>
+      <td class="mobile-hide">
         <%= form_for order, url: order_path(order) do |f| %>
           <%= f.hidden_field :status, :value =>"closed" %>
           <%= f.submit "x" %>

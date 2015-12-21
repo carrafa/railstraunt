@@ -88,6 +88,24 @@ h6{font-size: 2em;
     display: none;
   }
 }
+.mobile-right{
+  @include media($mobile){
+    text-align: right;
+  }
+}
+
+
+.full-width-button{
+  @include media($mobile){
+    width: 100%;
+  }
+}
+
+.small-button{
+  @include media($mobile){
+    padding: .1em;
+  }
+}
 
 ul{
   list-style: none;

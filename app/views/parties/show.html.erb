@@ -2,7 +2,7 @@
 
 <div class="subheader">
 
-  <div class="party">
+  <div class="mobile-hide">
     party #<%= @party.id %>
   </div>
 
@@ -44,9 +44,9 @@
   <table>
     <tr>
       <th>dish</th>
-      <th>seat</th>
-      <th>status</th>
-      <th>time</th>
+      <th class="mobile-right">seat</th>
+      <th class="mobile-hide">status</th>
+      <th class="mobile-hide">time</th>
       <th>close</th>
     </tr>
   <% @party.orders.each do |order| %>
@@ -54,13 +54,13 @@
 
       <tr>
         <td><%= order.dish.name %></td>
-        <td><%= order.seat %></td>
-        <td><%= order.status %></td>
-        <td class="time"><%= order.get_time_diff %> </td>
+        <td class="mobile-right"><%= order.seat %></td>
+        <td class="mobile-hide"><%= order.status %></td>
+        <td class="time mobile-hide"><%= order.get_time_diff %> </td>
         <td>
           <%= form_for order, url: order_path(order) do |f| %>
             <%= f.hidden_field :status, :value =>"closed" %>
-            <%= f.submit "x" %>
+            <%= f.submit "x", :class => "small-button" %>
           <% end %>
         </td>
       </tr>
@@ -68,4 +68,4 @@
     <% end %>
   </table>
 
-  <%= button_to "bill", party_bill_path(@party.id), method: :get %>
+  <%= button_to "bill", party_bill_path(@party.id), :class=> "full-width-button", method: :get %>

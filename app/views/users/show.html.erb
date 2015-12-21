@@ -32,7 +32,7 @@
   <% end %>
 </table>
 
-<%= button_to "add party", new_user_party_path(current_user), :class => "add-party-button", method: :get %>
+<%= button_to "add party", new_user_party_path(current_user), :class => "full-width-button", method: :get %>
 
 
 <div> here are your open orders
@@ -43,7 +43,7 @@
     <tr>
       <th>dish</th>
       <th class="mobile-hide">table</th>
-      <th>seat</th>
+      <th class="mobile-right">seat</th>
       <th class="mobile-hide">status</th>
       <th>time</th>
     </tr>
@@ -53,7 +53,7 @@
     <tr>
       <td><%= order.dish.name %></td>
       <td class="mobile-hide"><%= order.party.table %></td>
-      <td><%= order.seat %></td>
+      <td class="mobile-right"><%= order.seat %></td>
       <td class="mobile-hide"><%= order.status %></td>
       <td class="time"><%= order.get_time_diff %> </td>
     </tr>
