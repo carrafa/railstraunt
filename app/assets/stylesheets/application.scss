@@ -35,8 +35,10 @@ body{
   padding: 1em;
   @include outer-container;
   @include media($mobile){
-    background-color: gold;
-    padding: .5em;
+    padding-top: 1.2em;
+    padding-left: .5em;
+    padding-bottom: .5em;
+    padding-right: .5em;
     font-size: 2em;
   }
 }
@@ -97,9 +99,15 @@ ul{
 }
 
 header{
-  box-sizing: border-box;
   color: dodgerblue;
   @include fill-parent;
+  @include media($mobile){
+    background-color: dodgerblue;
+    top: 0;
+    left: 0;
+    position: fixed;
+    color: snow;
+  }
 }
 
 .subheader{
@@ -143,6 +151,12 @@ tr td:last-child{
   right: .5em;
   text-align: right;
   color: $dark-gray;
+  @include media($mobile){
+    top: .1em;
+    right: .2em;
+    font-size: .7em;
+    color: snow;
+  }
 }
 
 .stats-table{
