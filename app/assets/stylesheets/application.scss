@@ -118,10 +118,10 @@ ul{
 }
 
 header{
-  color: dodgerblue;
+  color: $default-color;
   @include fill-parent;
   @include media($mobile){
-    background-color: dodgerblue;
+    background-color: $default-color;
     top: 0;
     left: 0;
     position: fixed;

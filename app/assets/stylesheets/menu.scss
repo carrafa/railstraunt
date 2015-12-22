@@ -101,10 +101,14 @@
     font-size: .7em;
     background-color: transparent;
   }
-
   img {
     height: 1.3em;
   }
 }
 
+.sliding-panel-button:hover{
+  @include media($mobile){
+    background-color: transparent;
+  }
+}
 // Based on code by Diego Eis
