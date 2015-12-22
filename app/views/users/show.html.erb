@@ -5,7 +5,7 @@
 <table>
   <tr>
     <th>party</th>
-    <th>table</th>
+    <th class="mobile-right">table</th>
     <th class="mobile-hide">status</th>
     <th class="mobile-hide">close</th>
   </tr>
@@ -15,7 +15,7 @@
         <td>
           <%= party.id %>
         </td>
-        <td>
+        <td class="mobile-right">
           <%= link_to "Table " + party.table, party_path(party) %>
         </td>
         <td class="mobile-hide">
