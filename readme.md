@@ -1,6 +1,12 @@
 ![logo](screenshots/logo.png)
 
-Railstraunt is a restaurant order and menu management system built on Ruby on Rails.  There are three intended users for this application: servers, chefs, and managers (or admins) of restaurants.  There are three different types of accounts for each of these users, each with different abilities.
+Railstraunt is a full stack restaurant order and menu management system.  I built the backend with Ruby and Ruby on Rails.  For the front end, I used Bourbon and Neat as a styling framework, with some JQuery for a slide out menu and some minor DOM manipulation.  The database is managed with Postgres, and consists of six tables:
+
+![erd](screenshots/railstraunt-erd.png)
+
+
+
+There are three intended users for this application: servers, chefs, and managers (or admins) of restaurants.  There are three different types of accounts for each of these users, each with different abilities.
 
 The main purpose for a server is to have the ability to assign a party of guests to a table, and to assign food orders to a particular seat at that table.  First, the user adds a party by selecting which table they are sitting at.  Then it will appear on the main server view page which shows all of the user's open tables.
 
