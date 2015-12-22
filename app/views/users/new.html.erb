@@ -13,6 +13,7 @@
       <% ['server', 'chef', 'admin'].each do |c| %>
         <%= content_tag(:option, c, value: c) %>
         <% end %>
+    <%= f.hidden_field :status, :value => "active" %>
     <% end %>
     <%= f.submit 'create' %>
   <% end %>

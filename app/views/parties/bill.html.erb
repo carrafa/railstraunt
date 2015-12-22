@@ -16,7 +16,7 @@
 
   <tr>
     <td><%= order.dish.name %></td>
-    <td class="right">$<%= order.dish.price %></td>
+    <td class="right currency">$<%= order.dish.price %></td>
     <td class="mobile-hide">
       <%= form_for order, url: order_path(order) do |f| %>
         <%= f.hidden_field :status, :value =>"paid" %>
@@ -28,7 +28,7 @@
   <% end %>
   <tr>
     <td>pre-tip:</td>
-    <td class="right">$<%= @party.get_bill %></td>
+    <td class="right currency">$<%= @party.get_bill %></td>
     <td class="mobile-hide"></td>
   </tr>
   <tr>
@@ -42,7 +42,7 @@
         <% end %>
       <% end %>
     </td>
-    <td class="right">$
+    <td class="right currency">$
       <% bill = @party.get_bill %>
       <% tip = 0 %>
       <% if @party.tip %>
@@ -56,19 +56,30 @@
   <tr>
     <td>TOTAL</td>
     <% total = tip + bill %>
-    <td class="right">$<%= total %></td>
+    <td class="right currency">$<%= total %></td>
     <td class="mobile-hide"></td>
   </tr>
 </table>
 
 <br>
 
-<%= form_for :order, :url => party_multiple_path, :html => { :method => :put } do %>
+<div class="close-bill">
+  <%= form_for :order, :url => party_multiple_path, :html => { :method => :put } do %>
 
-    <% @party.orders.each do |order| %>
-      <%= fields_for "order[]", order do |f| %>
-      <td><%= f.hidden_field :status, :value => "paid" %></td>
+      <% @party.orders.each do |order| %>
+        <%= fields_for "order[]", order do |f| %>
+        <td><%= f.hidden_field :status, :value => "paid" %></td>
+        <% end %>
       <% end %>
-    <% end %>
-    <%= submit_tag "close bill", :class => "full-width-button" %>
-<% end %>
+      <%= submit_tag "close bill", :class => "full-width-button" %>
+  <% end %>
+</div>
+
+<div class="currency-switch right">
+  <label class="label-switch" id="currency-switch">
+    <input type="checkbox" />
+    <div class="checkbox"></div>
+  </label>
+  <div class="currency-USD">USD</div>
+  <div class="currency-EURO">EURO</div>
+</div>

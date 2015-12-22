@@ -1,1 +1,37 @@
-<h1>heyyyyy</h1>
+<%= render 'layouts/header' %>
+
+<h1>all users</h1>
+
+
+<table>
+  <tr>
+    <th>user</th>
+    <th>account</th>
+    <th>status</th>
+    <th>deactivate</th>
+  </tr>
+  <tr>
+    <% @users.each do |user| %>
+      <% if user.status != "inactive" %>
+        <td>
+          <%= user.username %>
+        </td>
+        <td>
+          <%= user.account %>
+        </td>
+        <td>
+          <%= user.status %>
+        </td>
+        <td>
+          <%= form_for user, url: user_path(user.id) do |f| %>
+            <%= f.hidden_field :status, :value => "inactive" %>
+            <%= f.submit "x" %>
+          <% end %>
+        </td>
+        </tr>
+      <% end %>
+    <% end %>
+</table>
+
+
+<%= button_to "add user", new_user_path, method: :get %>
