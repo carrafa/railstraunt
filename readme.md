@@ -43,7 +43,7 @@ The admin has all of the views available to chefs and servers with a few extras 
 
 >![dish view admin](screenshots/dish-view-admin.png)
 
-They have ability to see all of the tables in the restaurant and which server they are assigned to. They also can see a history of all the orders that have been placed and their status.  Finally, there is a stats page where they can see various statistics about the restaurant.
+Admins have ability to see all of the tables in the restaurant and which server they are assigned to. Additionally, as orders are marked as open, closed, and paid, they are never actually deleted from the database.  So the admin also has the ability to see the order history, and a stats page which shows various statistics about the restaurant's order history.
 
 >![stats](screenshots/stats.png)
 
