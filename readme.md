@@ -6,7 +6,7 @@ Railstraunt is a full stack restaurant order and menu management system.  I buil
 
 
 
-There are three intended users for this application: servers, chefs, and managers (or admins) of restaurants.  There are three different types of accounts for each of these users, each with different abilities.
+There are three intended users for this application: servers, chefs, and managers (admins) of restaurants.  There are three different types of accounts for each of these users, each with different abilities.
 
 The main purpose for a server is to have the ability to assign a party of guests to a table, and to assign food orders to a particular seat at that table.  First, the user adds a party by selecting which table they are sitting at.  Then it will appear on the main server view page which shows all of the user's open tables.
 
@@ -16,11 +16,11 @@ When the user clicks on the table, it goes to the party view page, where they ca
 
 >![party server view](screenshots/party-server-view.png)
 
-As the user assigns orders to seats, they will appear on the party view page for that party.  If the user goes back to view all of the tables they have assigned to them, they will be able to see all of the outstanding orders that need to be delivered.
+As the user assigns orders to seats, they will appear on the party view page for that party.  If the user goes back to view all of the tables they have assigned to them, they will be able to see all of the outstanding orders and their status.
 
 >![main server view](screenshots/main-server-view-with-orders.png)
 
-As the server delivers the food items, they can mark them as closed and they will no longer appear in this view.  When a table is ready to get their bill, the user can pull up the bill page, and all of the orders that haven't been paid for yet will appear, along with a tip dropdown to automatically add the tip.
+As the kitchen makes the orders and marks them as closed, the orders in the server's view will show the updated status.  When a table is ready to get their bill, the server can pull up the bill page, and all of the orders that haven't been paid for yet will appear, along with a tip dropdown to automatically add the tip.
 
 >![bill server view](screenshots/bill-server-view.png)
 
