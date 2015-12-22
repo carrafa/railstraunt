@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221225345) do
+ActiveRecord::Schema.define(version: 20151222184344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151221225345) do
     t.integer  "party_id"
     t.string   "seat"
     t.string   "status"
+    t.text     "note"
   end
 
   add_index "orders", ["dish_id"], name: "index_orders_on_dish_id", using: :btree

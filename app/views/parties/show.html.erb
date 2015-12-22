@@ -36,6 +36,10 @@
         <%= f.hidden_field :party_id, :value => @party.id %>
         <%= f.hidden_field :status, :value => "open" %>
       </div>
+      <div class="note">
+        <%= f.label :note %>
+        <%= f.text_field :note %>
+      </div>
       <div class="add-button">
         <%= f.submit "add" %>
       </div>

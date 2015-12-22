@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$default-color: #477dca;
+
 .third{
   @include span-columns(4);
 }
@@ -38,5 +40,17 @@
   }
   @include media($mobile){
     @include span-columns(4);
+  }
+}
+
+.note{
+  @include span-columns(6);
+  @include shift(2);
+  input{
+    border: 1px solid $default-color;
+  }
+  @include media($mobile){
+    @include span-columns(4);
+    @include shift(0);
   }
 }

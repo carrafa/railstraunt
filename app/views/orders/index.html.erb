@@ -11,6 +11,7 @@
       <th class="mobile-right">seat</th>
       <th class="mobile-hide">status</th>
       <th class="mobile-right">time</th>
+      <th class="mobile-hide">note</th>
       <th class="mobile-hide">close</th>
     </tr>
   <% @orders.each do |order| %>
@@ -22,6 +23,7 @@
       <td class="mobile-right"><%= order.seat %></td>
       <td class="mobile-hide"><%= order.status %></td>
       <td class="time mobile-right"><%= order.get_time_diff %> </td>
+      <td class="mobile-hide"><%= order.note %></td>
       <td class="mobile-hide">
         <%= form_for order, url: order_path(order) do |f| %>
           <%= f.hidden_field :status, :value =>"closed" %>
