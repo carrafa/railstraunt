@@ -26,9 +26,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
   end
 
-
   def update
-    authenticate!
     user = User.find(params[:id])
     user.update(user_params)
     redirect_to users_path
@@ -44,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :account, :password_confirmation, :status)
+    params.require(:user).permit(:username, :password, :account, :status, :password_confirmation)
   end
 
 

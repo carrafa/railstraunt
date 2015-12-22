@@ -30,7 +30,7 @@ function menuSlider() {
         'is-visible');
       e.preventDefault();
     });
-}
+};
 
 var $time = $('.time')
 
@@ -51,7 +51,7 @@ function timeColor() {
       $scope.css("color", "forestgreen")
     }
   });
-}
+};
 
 function tipFiller() {
   $('#party_tip').change(function() {
@@ -75,7 +75,7 @@ function currencySwitcher() {
       $('.currency').each(function() {
         var amount = $(this).text().substr(1, this.length);
         euros = Math.floor(amount * 0.91);
-        $(this).text("$" + euros);
+        $(this).text("€" + euros);
         $('.currency-EURO').toggle();
         $('.currency-USD').toggle();
       });

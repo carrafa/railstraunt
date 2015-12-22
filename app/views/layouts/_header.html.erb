@@ -20,26 +20,23 @@
         <%= link_to 'parties', user_path(current_user) %>
       <% end %>
     </li>
-    <li>
-      <% if current_user.account == "admin" %>
+    <% if current_user.account == "admin" %>
+      <li>
         <%= link_to 'your parties', user_path(current_user) %>
-      <% end %>
-    </li>
-    <li>
-      <% if current_user.account == "admin" %>
+      </li>
+      <li>
         <%= link_to 'all parties', parties_path %>
-      <% end %>
-    </li>
-    <li>
-      <% if current_user.account == "admin" %>
+      </li>
+      <li>
+        <%= link_to 'users', users_path %>
+      </li>
+      <li>
         <%= link_to 'history', orders_history_path %>
-      <% end %>
-    </li>
-    <li>
-      <% if current_user.account == "admin" %>
+      </li>
+      <li>
         <%= link_to 'stats', orders_stats_path %>
-      <% end %>
-    </li>
+      </li>
+    <% end %>
     <li><%= link_to "log out", sessions_path, method: :delete %></li>
   </ul>
 </nav>
