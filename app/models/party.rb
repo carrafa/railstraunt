@@ -29,6 +29,4 @@ class Party < ActiveRecord::Base
     return bill.inject(:+)
   end
 
-
-
 end
