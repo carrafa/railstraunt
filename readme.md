@@ -20,12 +20,9 @@ As the server delivers the food items, they can mark them as closed and they wil
 
 The navigation on the application is mainly done through the slide out menu on the left.  Since there are three different types of users, the navigation bars show different things depending on who is logged in.
 
-server view:
-![menu-server](screenshots/menu-server.png)
-chef view:
-![menu-chef](screenshots/menu-chef.png)
-admin view:
-![menu-admin](screenshots/menu-admin.png)
+<img src="screenshots/menu-server.png" width="32%">
+<img src="screenshots/menu-chef.png" width="32%">
+<img src="screenshots/menu-admin.png" width="32%">
 
 As the servers assign orders, the chefs have the ability to see all of the outstanding orders.  They can also see the number of minutes it has been since the order was put in.  This number changes color based on how long it has been.  It will show green for under 10 minutes, yellow for 10-20, orange for 20-30 and red for 30 or more.
 
@@ -33,11 +30,8 @@ As the servers assign orders, the chefs have the ability to see all of the outst
 
 Any user can also see the menu and ingredient pages, which show all of the food items available, along with ingredients.  In both of these views, The chefs and servers can only see them, while the admin has the additional ability to add and delete items.
 
-server/chef food item view:
-![dishes](screenshots/dishes-server.png)
-
-admin food item view:
-![dishes](screenshots/dishes-admin.png)
+<img src="screenshots/dishes-server.png" width="49%">
+<img src="screenshots/dishes-admin.png" width="49%">
 
 The admin has all of the views available to chefs and servers with a few extras available.  They have the ability to view a dish and add ingredients to it.  Eventually I would like to add some functionality where a server could automatically filter out an item that has a particular type of ingredient, in case the guest has a particular type of eating restriction.  But for now, the admin can add ingredients to the dish and they will appear on this page.
 
@@ -49,8 +43,6 @@ They have ability to see all of the tables in the restaurant and which server th
 
 The mobile view for this site was designed with the server's use in mind, it displays less information than the desktop view, but it still shows the user necessary information in a clean an organized way.
 
-mobile main view:
-![mobile main](screenshots/mobile-main.png)
-
-mobile bill view:
-![mobile bill](screenshots/mobile-bill.png)
+<br>
+<img src="screenshots/mobile-main.png" width="49%">
+<img src="screenshots/mobile-bill.png" width="49%">
