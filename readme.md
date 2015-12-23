@@ -46,6 +46,10 @@ Admins have ability to see all of the tables in the restaurant and which server 
 
 >![stats](screenshots/stats.png)
 
+There is also an individual ingredient view which allos the viewer to see a descriptino, and the fat and calorie content of an individual ingredient.  The fat and calorie data is pulled from the Nutritionix API.
+
+>![ingredient](screenshots/ingredient.png)
+
 The mobile view for this site was designed with the server's use in mind, it displays less information than the desktop view, but it still shows the user necessary information in a clean an organized way.
 
 <br>
