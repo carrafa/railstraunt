@@ -7,7 +7,7 @@
   <tr>
     <th>user</th>
     <th>account</th>
-    <th>status</th>
+    <th class="mobile-hide">status</th>
     <th>deactivate</th>
   </tr>
   <tr>
@@ -19,12 +19,12 @@
         <td>
           <%= user.account %>
         </td>
-        <td>
+        <td class="mobile-hide">
           <%= user.status %>
         </td>
         <td>
-          <%= form_for user, url: user_path(user.id) do |f| %>
-            <%= f.hidden_field :status, :value => "inactive" %>
+          <%= form_for user, url: user_path(user), method: :put do |f| %>
+            <%= f.hidden_field (:status), :value => "inactive" %>
             <%= f.submit "x" %>
           <% end %>
         </td>
@@ -36,4 +36,4 @@
 </table>
 
 
-<%= button_to "add user", new_user_path, method: :get %>
+<%= button_to "add user", new_user_path, :class => "full-width-button", method: :get %>

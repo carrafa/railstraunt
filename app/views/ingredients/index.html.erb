@@ -24,7 +24,7 @@
   </table>
       <% if current_user.account == "admin" %>
       <div>
-      <%= button_to "add ingredient", new_ingredient_path, method: :get %>
+      <%= button_to "add ingredient", new_ingredient_path, :class => "full-width-button", method: :get %>
       <% end %>
     </div>
   </ul>

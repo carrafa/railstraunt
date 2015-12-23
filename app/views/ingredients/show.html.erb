@@ -9,7 +9,12 @@
 </p>
 
 <p>
-  <%= @ingredient.nutrition(@ingredient.name) %>
+  <% facts = @ingredient.nutrition(@ingredient.name) || null  %>
+  calories:
+  <%= facts["nf_calories"] %>
+  <br>
+  fat:
+  <%= facts["nf_total_fat"] %>
 </p>
 
 <ul>
