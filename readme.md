@@ -1,9 +1,8 @@
 ![logo](screenshots/logo.png)
 
-Railstraunt is a full stack restaurant order and menu management system.  I built the backend with Ruby and Ruby on Rails.  For the front end, I used the Bourbon styling framework, with some JQuery for a slide out menu and some minor DOM manipulation.  The database is managed with Postgres, and consists of six tables:
+Railstraunt is a full stack restaurant order and menu management system.  I built the backend with Ruby and Ruby on Rails.  For the front end, I used Bourbon for styling, with some JQuery for a slide out menu and some minor DOM manipulation.  The database is managed with Postgres, and consists of six tables:
 
 >![erd](screenshots/railstraunt-erd.png)
-
 
 
 There are three intended users for this application: servers, chefs, and managers (admins) of restaurants.  There are three different types of accounts for each of these users, each with different abilities.
