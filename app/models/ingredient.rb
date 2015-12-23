@@ -3,18 +3,18 @@ class Ingredient < ActiveRecord::Base
   has_many :recipes
   has_many :dishes, through: :recipes
 
-
   def nutrition(name)
     search = name.gsub(" ", "%20")
     result = HTTParty.get("https://api.nutritionix.com/v1_1/search/#{search}?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=4ec2ae00&appKey=6b308af5c0161c968a338462487da5e8")
-    facts = JSON.parse(result.body)['hits'][0]['fields']
-    return facts
+
+    if result.parsed_response['total_hits'] > 0
+      return result.parsed_response['hits'][0]['fields']
+    else
+      return false
+    end
   end
 
-
 end
-
-
 
 # trying to get nutritional data from ingredients through the usda api... it's tough to comb through the results... ended up using nutritionix
 
