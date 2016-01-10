@@ -31,7 +31,7 @@ class PartiesController < ApplicationController
   def update_tip
     @party = Party.find(params[:party_id])
     @party.update(party_params)
-    redirect_to party_path(@party.id)
+    redirect_to party_bill_path(@party.id)
   end
 
   def show
