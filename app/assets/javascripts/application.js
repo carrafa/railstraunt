@@ -67,8 +67,8 @@ function currencySwitcher() {
         var amount = $(this).text().substr(1, this.length);
         usd = Math.ceil(amount * 1.1);
         $(this).text("$" + usd);
-        $('.currency-EURO').toggle();
-        $('.currency-USD').toggle();
+        $('.currency-EURO').css('display', 'none');
+        $('.currency-USD').css('display', 'block');
       });
       currency = 'us'
     } else if (currency === 'us') {
@@ -76,8 +76,8 @@ function currencySwitcher() {
         var amount = $(this).text().substr(1, this.length);
         euros = Math.floor(amount * 0.91);
         $(this).text("€" + euros);
-        $('.currency-EURO').toggle();
-        $('.currency-USD').toggle();
+        $('.currency-EURO').css('display', 'block');
+        $('.currency-USD').css('display', 'none');
       });
       currency = 'euro'
     }
